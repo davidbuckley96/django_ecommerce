@@ -350,21 +350,6 @@
   column-gap: 10px;
 }
 
-.all-reviews .reviews-left {
-  display: flex;
-  flex-direction: column;
-  row-gap: 40px;
-  margin: -60px 0;
-  padding: 60px 0;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.all-reviews .reviews-right {
-  display: flex;
-  flex-direction: column;
-  row-gap: 40px;
-}
-
 .review {
   margin-top: 12.5px;
   display: flex;
