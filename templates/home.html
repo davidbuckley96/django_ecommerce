@@ -1,0 +1,630 @@
+{% extends 'base.html' %}
+
+<!-- adicionar a função de adicionar aos faviritos -->
+<!-- adicionar funcionalidade de buscar produtos (mudar nome da página para search) -->
+<!-- arrumar o botão de favorito desalinhado (também em 'explore', na página home)-->
+<!-- colocar o coração preto com opacidade 0 durante hover (ficar apenas o roxo nessa hora) -->
+<!-- adicionar margin no card (margin bottom do preço e botão de carrinho) -->
+<!-- rever TODA a barra de navegação, se está correta (aparentemente mudou muita coisa pequena) -->
+<!-- mudar o carrossel para clicar, em vez de automático -->
+<!-- criar páginas para highlights, categorias, explore -->
+<!-- em product.html, talvez deixar apenas as últimas 4 reviews, em vez de todas? -->
+
+
+{% if page == 'search' %}
+<h1>Your search:</h1>
+{% for product in products %}
+<hr>
+<div>
+  <a href="{% url 'product' pk=product.id %}"><img src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+  <div>
+    <p><strong>{{ product.name }}</strong></p>
+    {% if product.discount %}
+    <p><strong>${{ product.discount_price|floatformat:2 }}</strong></p>
+    <strike>
+      <p>${{ product.price }}</p>
+    </strike>
+    {% else %}
+    <p><strong>${{ product.price }}</strong></p>
+    {% endif %}
+    <span>Last updated {{ product.date_created|timesince }} ago.</span>
+    <p>{{ product.description|truncatechars_html:80 }}</p>
+    {# <button value="{{ product.id }}" id="add-cart" data-product="{{ product.id }}" data-action="add"
+      class="update-cart">Add to cart</button>#}
+  </div>
+</div>
+{% endfor %}
+
+{% else %}
+
+<!-- <h2>Latest products:</h2>
+{% for product in recent_products %}
+<hr>
+<div>
+  <a href="{% url 'product' pk=product.id %}"><img src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+  <div>
+    <p><strong>{{ product.name }}</strong></p>
+    {% if product.discount %}
+    <p><strong>${{ product.discount_price|floatformat:2 }}</strong></p>
+    <strike>
+      <p>${{ product.price }}</p>
+    </strike>
+    {% else %}
+    <p><strong>${{ product.price }}</strong></p>
+    {% endif %}
+    <span>Last updated {{ product.date_created|timesince }} ago.</span>
+    <p>{{ product.description|truncatechars_html:80 }}</p>
+    {# <button id="add-cart" data-product="{{ product.id }}" data-action="add" class="update-cart">Add to
+      cart</button>#}
+  </div>
+</div>
+{% endfor %} -->
+
+<h2>Products for Sale:</h2>
+{% for product in sales_products %}
+<div>
+  <a href="{% url 'product' pk=product.id %}"><img src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+  <div>
+    <p><strong>{{ product.name }}</strong></p>
+    <p><strong>${{ product.discount_price|floatformat:2 }}</strong></p>
+    <strike>
+      <p>${{ product.price }}</p>
+    </strike>
+    <span>Last updated {{ product.date_created|timesince }} ago.</span>
+    <p>{{ product.description|truncatechars_html:80 }}</p>
+    {# <button id="add-cart" data-product="{{ product.id }}" data-action="add" class="update-cart">Add to
+      cart</button>#}
+  </div>
+</div>
+{% endfor %}
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+<main id="main-home">
+  <!-- hero starts -->
+  <section id="hero">
+
+    <div id="hero-title">
+      <p class="left">Realize your wishes</p>
+      <p class="right">Shop with confidence</p>
+    </div>
+
+  </section>
+  <!-- hero ends -->
+
+  <!-- customer starts -->
+  <section id="customer-info">
+    <div id="customer-buttons">
+      <div class="customer-button">
+        <div class="customer-button-top"><img src="../static/images/assets/wallet-icon.png" alt="wallet-icon">
+        </div>
+        <div>Pay with total security</div>
+      </div>
+      <div class="customer-button">
+        <div class="customer-button-top"><img src="../static/images/assets/dollar-icon.png" alt="dollar-icon">
+        </div>
+        <div>Best prices on our site</div>
+      </div>
+      <div class="customer-button">
+        <div class="customer-button-top"><img src="../static/images/assets/support-icon.png" alt="support-icon">
+        </div>
+        <div>24/7 Customer support</div>
+      </div>
+      <div class="customer-button">
+        <div class="customer-button-top"><img src="../static/images/assets/cashback-icon.png" alt="refund-icon">
+        </div>
+        <div>Refund policy guaranteed</div>
+      </div>
+      <div class="customer-button">
+        <div class="customer-button-top"><img src="../static/images/assets/shipping-icon.png" alt="shipping-icon">
+        </div>
+        <div>Global shipping available</div>
+      </div>
+      <div class="customer-button">
+        <div class="customer-button-top"><img src="../static/images/assets/thumbsup-icon.png" alt="thumbsup-icon">
+        </div>
+        <div>Trustworthy sellers only</div>
+      </div>
+    </div>
+  </section>
+  <!-- customer ends -->
+
+
+  {% if page == 'search' %}
+
+  <span id="search-title">Search results</span>
+  <section id="search">
+
+    <div class="search-container">
+
+      {% for product in recent_products_1 %}
+      <div class="search-item">
+        <div class="search-item-top">
+          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+              alt="Search {{product.id}}"></a>
+        </div>
+        <div class="search-item-bottom">
+          <div class="search-info">
+            <span class="search-name">{{ product.name|truncatechars:55 }}</span>
+            <div class="search-prices">
+              {% if product.discount %}
+              <span class="search-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+              <span class="search-price-old">€ {{ product.price|floatformat:2 }}</span>
+              {% else %}
+              <span class="search-price-new">€ {{ product.price|floatformat:2 }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="search-buttons">
+            <label for="search-favorite-{{product.id}}" class="custom-checkbox-2">
+              <input type="checkbox" id="search-favorite-{{product.id}}">
+              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
+              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
+            </label>
+            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+                alt="cart-icon"></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <!-- higllights starts -->
+  <span id="highlights-title">Today's Highlights</span>
+  <section id="highlights">
+    <!-- carousel starts -->
+    <div class="slider">
+
+      <div class="slide-track">
+
+        {% for product in sales_products %}
+
+        <div class="slide">
+          <a href="{% url 'product' pk=product.id %}"><img class="slide-img" src="{{ product.image.url }}"
+              alt="highlight 1"></a>
+          <div class="highlights-bottom">
+            <div class="highlights-left">
+              <span class="highlight-name">{{ product.name|truncatechars:55 }}</span>
+              <div class="highlights-prices">
+                <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+                <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+              </div>
+            </div>
+            <div class="highlights-right">
+              <label for="highlights-favorite-{{product.id}}" class="custom-checkbox">
+                <input type="checkbox" id="highlights-favorite-{{product.id}}">
+                <i class="highlight-e glyphicon glyphicon-heart-empty"></i>
+                <i class="highlight-f glyphicon glyphicon-heart"></i>
+              </label>
+
+              <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                class="update-cart highlights-cart"><img src="../static/images/assets/highlight-cart.png"
+                  alt="cart-icon"></button>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+    <!-- carousel ends -->
+  </section>
+  <!-- highlights ends -->
+
+  <!-- categories starts -->
+  <section id="categories">
+    <span class="categories-title">Our categories</span>
+
+    <div class="categories-all">
+
+      <div class="categories-top">
+
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-1.png" alt="category-image"></a>
+          <span class="category-name">Electronics & Gadgets</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-2.png" alt="category-image"></a>
+          <span class="category-name">Gaming & Consoles</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-3.png" alt="category-image"></a>
+          <span class="category-name">Fashion & Apparel</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-4.png" alt="category-image"></a>
+          <span class="category-name">Jewelry & Accessories</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-5.png" alt="category-image"></a>
+          <span class="category-name">Health & Beauty</span>
+        </div>
+
+      </div>
+
+      <div class="categories-bottom">
+
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-6.png" alt="category-image"></a>
+          <span class="category-name">Sports & Fitness</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-7.png" alt="category-image"></a>
+          <span class="category-name">Pet Supplies</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-8.png" alt="category-image"></a>
+          <span class="category-name">Toys & Kids</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-9.png" alt="category-image"></a>
+          <span class="category-name">Books & Learning</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-10.png"
+              alt="category-image"></a>
+          <span class="category-name">Garden & Outdoor</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- categories ends -->
+
+  <!-- explore hero starts -->
+  <section id="explore-hero">
+    <div class="explore-hero-title">
+      <span class="explore-hero-message">Unleash your confidence</span>
+    </div>
+  </section>
+  <!-- explore hero ends -->
+
+  <!-- explore starts -->
+  <span id="explore-title">Explore</span>
+  <section id="explore">
+
+    <div class="explore-row">
+
+      {% for product in recent_products_1 %}
+      <div class="explore-item">
+        <div class="explore-item-top">
+          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+              alt="Explore 3"></a>
+        </div>
+        <div class="explore-item-bottom">
+          <div class="explore-info">
+            <span class="explore-name">{{ product.name|truncatechars:55 }}</span>
+            <div class="explore-prices">
+              {% if product.discount %}
+              <span class="explore-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+              <span class="explore-price-old">€ {{ product.price|floatformat:2 }}</span>
+              {% else %}
+              <span class="explore-price-new">€ {{ product.price|floatformat:2 }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="explore-buttons">
+            <label for="explore-favorite-{{product.id}}" class="custom-checkbox-2">
+              <input type="checkbox" id="explore-favorite-{{product.id}}">
+              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
+              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
+            </label>
+            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+                alt="cart-icon"></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+
+    <div class="explore-row">
+
+      {% for product in recent_products_2 %}
+      <div class="explore-item">
+        <div class="explore-item-top">
+          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+              alt="Explore 3"></a>
+        </div>
+        <div class="explore-item-bottom">
+          <div class="explore-info">
+            <span class="explore-name">{{ product.name|truncatechars:55 }}</span>
+            <div class="explore-prices">
+              {% if product.discount %}
+              <span class="explore-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+              <span class="explore-price-old">€ {{ product.price|floatformat:2 }}</span>
+              {% else %}
+              <span class="explore-price-new">€ {{ product.price|floatformat:2 }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="explore-buttons">
+            <label for="explore-favorite-{{product.id}}" class="custom-checkbox-2">
+              <input type="checkbox" id="explore-favorite-{{product.id}}">
+              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
+              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
+            </label>
+            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+                alt="cart-icon"></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+
+    <div class="explore-row">
+
+      {% for product in recent_products_3 %}
+      <div class="explore-item">
+        <div class="explore-item-top">
+          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+              alt="Explore 3"></a>
+        </div>
+        <div class="explore-item-bottom">
+          <div class="explore-info">
+            <span class="explore-name">{{ product.name|truncatechars:55 }}</span>
+            <div class="explore-prices">
+              {% if product.discount %}
+              <span class="explore-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+              <span class="explore-price-old">€ {{ product.price|floatformat:2 }}</span>
+              {% else %}
+              <span class="explore-price-new">€ {{ product.price|floatformat:2 }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="explore-buttons">
+            <label for="explore-favorite-{{product.id}}" class="custom-checkbox-2">
+              <input type="checkbox" id="explore-favorite-{{product.id}}">
+              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
+              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
+            </label>
+            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+                alt="cart-icon"></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+    <a href="#" class="explore-more">See more <img class="explore-more-icon"
+        src="../static/images/assets/chevron-down-black.png" alt="chevron-down"></a>
+
+  </section>
+  <!-- explore ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% else %}
+
+  <!-- higllights starts -->
+  <span id="highlights-title">Today's Highlights</span>
+  <section id="highlights">
+    <!-- carousel starts -->
+    <div class="slider">
+
+      <div class="slide-track">
+
+        {% for product in sales_products %}
+
+        <div class="slide">
+          <a href="{% url 'product' pk=product.id %}"><img class="slide-img" src="{{ product.image.url }}"
+              alt="highlight 1"></a>
+          <div class="highlights-bottom">
+            <div class="highlights-left">
+              <span class="highlight-name">{{ product.name|truncatechars:55 }}</span>
+              <div class="highlights-prices">
+                <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+                <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+              </div>
+            </div>
+            <div class="highlights-right">
+              <label for="highlights-favorite-{{product.id}}" class="custom-checkbox">
+                <input type="checkbox" id="highlights-favorite-{{product.id}}">
+                <i class="highlight-e glyphicon glyphicon-heart-empty"></i>
+                <i class="highlight-f glyphicon glyphicon-heart"></i>
+              </label>
+
+              <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                class="update-cart highlights-cart"><img src="../static/images/assets/highlight-cart.png"
+                  alt="cart-icon"></button>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+    <!-- carousel ends -->
+  </section>
+  <!-- highlights ends -->
+
+  <!-- categories starts -->
+  <section id="categories">
+    <span class="categories-title">Our categories</span>
+
+    <div class="categories-all">
+
+      <div class="categories-top">
+
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-1.png" alt="category-image"></a>
+          <span class="category-name">Electronics & Gadgets</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-2.png" alt="category-image"></a>
+          <span class="category-name">Gaming & Consoles</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-3.png" alt="category-image"></a>
+          <span class="category-name">Fashion & Apparel</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-4.png" alt="category-image"></a>
+          <span class="category-name">Jewelry & Accessories</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-5.png" alt="category-image"></a>
+          <span class="category-name">Health & Beauty</span>
+        </div>
+
+      </div>
+
+      <div class="categories-bottom">
+
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-6.png" alt="category-image"></a>
+          <span class="category-name">Sports & Fitness</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-7.png" alt="category-image"></a>
+          <span class="category-name">Pet Supplies</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-8.png" alt="category-image"></a>
+          <span class="category-name">Toys & Kids</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-9.png" alt="category-image"></a>
+          <span class="category-name">Books & Learning</span>
+        </div>
+        <div class="category">
+          <a href="#"><img class="category-image" src="../static/images/assets/category-10.png"
+              alt="category-image"></a>
+          <span class="category-name">Garden & Outdoor</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- categories ends -->
+
+  <!-- explore hero starts -->
+  <section id="explore-hero">
+    <div class="explore-hero-title">
+      <span class="explore-hero-message">Unleash your confidence</span>
+    </div>
+  </section>
+  <!-- explore hero ends -->
+
+  <!-- explore starts -->
+  <span id="explore-title">Explore</span>
+  <section id="explore">
+
+    <div class="explore-all">
+      {% for product in recent_products %}
+      <div class="explore-item">
+        <div class="explore-item-top">
+          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+              alt="Explore 3"></a>
+        </div>
+        <div class="explore-item-bottom">
+          <div class="explore-info">
+            <span class="explore-name">{{ product.name|truncatechars:55 }}</span>
+            <div class="explore-prices">
+              {% if product.discount %}
+              <span class="explore-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+              <span class="explore-price-old">€ {{ product.price|floatformat:2 }}</span>
+              {% else %}
+              <span class="explore-price-new">€ {{ product.price|floatformat:2 }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="explore-buttons">
+            <label for="explore-favorite-{{product.id}}" class="custom-checkbox-2">
+              <input type="checkbox" id="explore-favorite-{{product.id}}">
+              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
+              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
+            </label>
+            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+                alt="cart-icon"></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+
+
+    <a href="javascript:;" class="explore-more">See more <span class="loading"><span></span></span><img
+        class="explore-more-icon" src="../static/images/assets/chevron-down-black.png" alt="chevron-down"></a>
+
+  </section>
+  <!-- explore ends -->
+
+  {% endif %}
+
+</main>
+
+<script>
+  const exploreMore = document.querySelector('.explore-more');
+  let currentItems = 8;
+
+  exploreMore.addEventListener('click', (e) => {
+    const elementList = [...document.querySelectorAll('.explore-item')];
+    e.target.classList.add('show-loader');
+
+    for (let i = currentItems; i < currentItems + 8; i++) {
+      setTimeout(function () {
+        e.target.classList.remove('show-loader');
+
+        if (elementList[i]) {
+          elementList[i].style.display = 'flex';
+        }
+      }, 1300)
+    }
+    currentItems += 8;
+
+    // hide load button after fully load items
+    if (currentItems >= elementList.length) {
+      event.target.classList.add('loaded')
+    }
+
+  })
+</script>
+{% endblock content %}

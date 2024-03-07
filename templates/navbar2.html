@@ -1,0 +1,84 @@
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/category.css">
+  <link rel="stylesheet" href="../static/css/product.css">
+
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+</head>
+
+
+<header>
+  <!-- navbar starts -->
+  <nav id="navigation">
+    <div class="nav-top">
+      <a href="#"><img class="logo" src="../static/images/assets/logo.png" alt="logo"></a>
+      <form action="get" id="search-container">
+        <input type="text" id="search-bar" placeholder="pet toys">
+        <a href="#" id="search-button"><img src="../static/images/assets/search1.png" alt="search"></a>
+      </form>
+      <a href="#" id="nav-currency">EUR&nbsp;<img src="../static/images/assets/chevron-down.png" alt="chevron-down"></a>
+      <a href="#" id="nav-your-account"><img src="../static/images/assets/user-icon.png" alt="user-icon">Your
+        account</a>
+      <a href="#" id="cart-icon"><img src="../static/images/assets/shopping-cart.png" alt="shopping-cart"></a>
+    </div>
+    <span id="navbar-separator"></span>
+
+    <div class="nav-bottom">
+      <div class="nav-links">
+        <a href="#">All categories <img src="../static/images/assets/chevron-down.png" alt="chevron-down"></a>
+        <a href="#">House</a>
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Animals</a>
+        <a href="#">Garden</a>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar ends -->
+</header>
+
+{% block content %}
+
+{% endblock content %}
+
+<!-- footer starts -->
+<footer id="footer">
+
+  <div class="footer-links">
+    <img class="footer-logo" src="../static/images/assets/logo-footer.png" alt="logo-footer">
+    <div class="footer-col">
+      <span class="footer-col-title">Company Information</span>
+      <span class="footer-col-item">Company Name</span>
+      <span class="footer-col-item">Headquarters Address</span>
+      <span class="footer-col-item">Phone Number</span>
+      <span class="footer-col-item">Email Address</span>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Quick Navigation</span>
+      <span class="footer-col-item">Home</span>
+      <span class="footer-col-item">Products</span>
+      <span class="footer-col-item">Categories</span>
+      <span class="footer-col-item">Promotions</span>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Help and Support</span>
+      <span class="footer-col-item">Help Center</span>
+      <span class="footer-col-item">Return Policy</span>
+      <span class="footer-col-item">Terms and Conditions</span>
+      <span class="footer-col-item">Privacy Policy</span>
+    </div>
+    <div class="footer-col-images">
+      <span class="footer-col-title">Find Us</span>
+      <span class="footer-col-item"><img src="../static/images/assets/icon-youtube.png" alt="icon-youtube"
+          class="footer-col-item-icon"></span>
+      <span class="footer-col-item"><img src="../static/images/assets/icon-instagram.png" alt="icon-instagram"
+          class="footer-col-item-icon"></span>
+      <span class="footer-col-item"><img src="../static/images/assets/icon-facebook.png" alt="icon-facebook"
+          class="footer-col-item-icon"></span>
+      <span class="footer-col-item"><img src="../static/images/assets/icon-twitter.png" alt="icon-twitter"
+          class="footer-col-item-icon"></span>
+    </div>
+  </div>
+</footer>
+<!-- footer ends -->
