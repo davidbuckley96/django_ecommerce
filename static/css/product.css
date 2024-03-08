@@ -68,6 +68,7 @@
 .custom-checkbox-4 {
   cursor: pointer;
   font-size: 30px;
+  margin-top: -36px;
 }
 
 .glyphicon {
@@ -92,8 +93,16 @@
   opacity: 0.5;
 }
 
+.custom-checkbox-4:hover .product-e {
+  opacity: 0;
+}
+
 .custom-checkbox-4 input[type="checkbox"]:checked~.product-f {
   opacity: 1;
+}
+
+.custom-checkbox-4 input[type="checkbox"]:checked~.product-e {
+  opacity: 0;
 }
 
 .product-f {

@@ -1,16 +1,17 @@
 /* CATEGORIES HERO STARTS */
 /* CATEGORIES HERO STARTS */
 /* CATEGORIES HERO STARTS */
+#categories {
+  width: 100%;
+}
+
 
 .categories-hero {
   background: url(../images/assets/categories/categories-hero.png);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
-
-  display: inline-block;
-  width: 100%;
-
+  margin-top: -90px;
   height: 360px;
 
   display: flex;

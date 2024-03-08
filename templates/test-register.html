@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main id="authentication">
+  <span class="title">Register</span>
+  <span class="subtitle">Do you already have an account? <a href="{% url 'login' %}">Sign in</a></span>
+  <div class="register-container">
+    <form class="register-form" action="" method="POST">
+      <label for="register-name">Name</label>
+      <input id="register-name" type="text" placeholder="Enter your first and last name">
+
+      <label class="email-title" for="register-email">Email</label>
+      <input id="register-email" type="email" placeholder="Enter your email">
+
+      <label class="password-title" for="register-password">Password</label>
+      <input id="register-password" type="password" placeholder="At least 8 characters">
+
+      <label class="password-title" for="register-password-2">Re-enter password</label>
+      <input id="register-password-2" type="password">
+
+      <button class="register-button" type="submit">Sign in</button>
+    </form>
+    <div class="accounts-subtitle-container">
+      <span class="accounts-subtitle">
+        <hr> or sign in with your accounts
+        <hr>
+      </span>
+    </div>
+  </div>
+
+  <!-- accounts login -->
+  <div class="accounts-container">
+    <button class="google-login"><img src="../static/images/assets/login/google.png" alt="google-icon">Continue with
+      Google</button>
+
+    <button class="facebook-login"><img src="../static/images/assets/login/facebook.png" alt="facebook-icon">Continue
+      with
+      Facebook</button>
+  </div>
+</main>
+
+{% endblock content %}

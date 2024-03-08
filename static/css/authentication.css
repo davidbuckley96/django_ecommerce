@@ -164,3 +164,67 @@ header::after {
 /* REGISTER STARTS */
 /* REGISTER STARTS */
 /* REGISTER STARTS */
+.register-container .register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 17px;
+  width: 378px;
+}
+
+.register-form label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.register-form label.password-title {
+  margin-top: 24px;
+}
+
+.register-form input {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  height: 39px;
+  width: 376px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.register-form input:active {
+  border: none;
+
+}
+
+.register-container .register-form a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: var(--color4);
+  font-weight: 600;
+  text-decoration: none;
+
+  margin-top: 12px;
+}
+
+.register-container .register-form a:hover {
+  text-decoration: underline;
+}
+
+.register-form .register-button {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--color4);
+  color: white;
+  width: 87px;
+  height: 35px;
+  align-self: center;
+  margin-top: 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+.email-title {
+  margin-top: 24px;
+}

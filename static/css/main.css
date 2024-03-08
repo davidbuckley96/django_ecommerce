@@ -782,6 +782,8 @@ highlight-f {
   justify-content: center;
 }
 
+
+
 .custom-checkbox-3 {
   cursor: pointer;
   position: relative;
@@ -824,6 +826,11 @@ highlight-f {
 
 .custom-checkbox-3 input[type="checkbox"]:checked~.favourite-3-e {
   opacity: 0;
+}
+
+label.bestseller {
+  position: relative;
+  left: 3px;
 }
 
 .bestseller-cart {

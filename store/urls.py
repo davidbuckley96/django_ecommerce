@@ -17,6 +17,8 @@ urlpatterns = [
     path('teste-category/', views.teste2, name='teste-category'),
     path('teste-product/', views.teste3, name='teste-product'),
     path('teste-login/', views.teste4, name='teste-login'),
+    path('teste-register/', views.teste5, name='teste-register'),
+    path('teste-cart-empty/', views.teste6, name='teste-cart-empty'),
     # teste CSS
 
     path('update-item/', views.update_item, name='update-item'),
