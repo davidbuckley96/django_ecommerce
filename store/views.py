@@ -8,6 +8,7 @@ from django.http.response import JsonResponse
 import json
 from django.contrib.auth.decorators import login_required
 from datetime import datetime, timedelta
+from random import sample
 
 # teste template CSS
 # teste template CSS
@@ -31,6 +32,8 @@ def home(request):
     sales_products = Product.objects.filter(discount=True).order_by('-date_modified')[:18]
     categories = Category.objects.all()
     digital_products = Product.objects.filter(digital=True)
+    random_products = list(Product.objects.all())
+    best_sellers = sample(random_products, 8)
 
     if request.GET.get('q') is not None:
         q = request.GET.get('q')
@@ -46,13 +49,9 @@ def home(request):
     )
     products_count = products.count()
 
-    # context = {'recent_products_1': recent_products_1, 'recent_products_2': recent_products_2, 'recent_products_3': recent_products_3, 'categories': categories, 'sales_products': sales_products,
-    #            'products_count': products_count, 'products': products, 'page': page,
-    #            'digital_products': digital_products}
-
     context = {'recent_products': recent_products, 'categories': categories, 'sales_products': sales_products,
             'products_count': products_count, 'products': products, 'page': page,
-            'digital_products': digital_products}
+            'digital_products': digital_products, 'best_sellers': best_sellers}
     return render(request, 'home.html', context)
 
 

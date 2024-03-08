@@ -105,6 +105,8 @@
   </section>
   <!-- hero ends -->
 
+
+
   <!-- customer starts -->
   <section id="customer-info">
     <div id="customer-buttons">
@@ -141,6 +143,7 @@
     </div>
   </section>
   <!-- customer ends -->
+
 
 
   {% if page == 'search' %}
@@ -229,71 +232,79 @@
   </section>
   <!-- highlights ends -->
 
+
+
   <!-- categories starts -->
   <section id="categories">
     <span class="categories-title">Our categories</span>
-
+  
     <div class="categories-all">
-
+  
       <div class="categories-top">
-
+  
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-1.png' %}"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Electronics & Gadgets' %}"><img class="category-image"
+              src="{% static 'images/assets/category-1.png' %}" alt="category-image"></a>
           <span class="category-name">Electronics & Gadgets</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-2.png' %}"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Gaming & Consoles' %}"><img class="category-image"
+              src="{% static 'images/assets/category-2.png' %}" alt="category-image"></a>
           <span class="category-name">Gaming & Consoles</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-3.png' %}"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Fashion & Apparel' %}"><img class="category-image"
+              src="{% static 'images/assets/category-3.png' %}" alt="category-image"></a>
           <span class="category-name">Fashion & Apparel</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-4.png' %}"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Jewelry & Accessories' %}"><img class="category-image"
+              src="{% static 'images/assets/category-4.png' %}" alt="category-image"></a>
           <span class="category-name">Jewelry & Accessories</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-5.png' %}"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Health & Beauty' %}"><img class="category-image"
+              src="{% static 'images/assets/category-5.png' %}" alt="category-image"></a>
           <span class="category-name">Health & Beauty</span>
         </div>
-
+  
       </div>
-
-      <!-- <div class="categories-bottom">
-
+  
+      <div class="categories-bottom">
+  
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-6.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Sports & Fitness' %}"><img class="category-image"
+              src="{% static 'images/assets/category-6.png' %}" alt="category-image"></a>
           <span class="category-name">Sports & Fitness</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-7.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Pet Supplies' %}"><img class="category-image"
+              src="{% static 'images/assets/category-7.png' %}" alt="category-image"></a>
           <span class="category-name">Pet Supplies</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-8.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Toys & Kids' %}"><img class="category-image"
+              src="{% static 'images/assets/category-8.png' %}" alt="category-image"></a>
           <span class="category-name">Toys & Kids</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-9.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Books & Learning' %}"><img class="category-image"
+              src="{% static 'images/assets/category-9.png' %}" alt="category-image"></a>
           <span class="category-name">Books & Learning</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-10.png"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Garden & Outdoor' %}"><img class="category-image"
+              src="{% static 'images/assets/category-10.png' %}" alt="category-image"></a>
           <span class="category-name">Garden & Outdoor</span>
         </div>
-
-      </div> -->
-
+  
+      </div>
+  
     </div>
   </section>
   <!-- categories ends -->
+
+
 
   <!-- explore hero starts -->
   <section id="explore-hero">
@@ -302,6 +313,8 @@
     </div>
   </section>
   <!-- explore hero ends -->
+
+
 
   <!-- explore starts -->
   <span id="explore-title">Explore</span>
@@ -365,6 +378,8 @@
 
   {% else %}
 
+
+
   <!-- higllights starts -->
   <span id="highlights-title">Today's Highlights</span>
   <section id="highlights">
@@ -408,6 +423,52 @@
   </section>
   <!-- highlights ends -->
 
+
+
+<!-- bestsellers starts -->
+  <section id="bestsellers">
+    <span class="title">Best sellers</span>
+    <div class="bestsellers-all-container">
+      <div class="bestsellers-all">
+        {% for product in best_sellers %}
+        <div class="bestseller-item">
+          <div class="bestseller-item-top">
+            <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+                alt="bestseller-item"></a>
+          </div>
+          <div class="bestseller-item-bottom">
+            <div class="bestseller-info">
+              <span class="bestseller-name">{{ product.name|truncatechars:55 }}</span>
+              <div class="bestseller-prices">
+                {% if product.discount %}
+                <span class="bestseller-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+                <span class="bestseller-price-old">€ {{ product.price|floatformat:2 }}</span>
+                {% else %}
+                <span class="bestseller-price-new">€ {{ product.price|floatformat:2 }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="bestseller-buttons">
+              <label for="bestseller-favorite-{{product.id}}" class="custom-checkbox-3">
+                <input type="checkbox" id="bestseller-favorite-{{product.id}}">
+                <i class="favourite-3-e glyphicon glyphicon-heart-empty"></i>
+                <i class="favourite-3-f glyphicon glyphicon-heart"></i>
+              </label>
+              <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+              <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                class="update-cart bestseller-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                  alt="cart-icon"></button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+<!-- bestsellers ends -->
+
+
+
   <!-- categories starts -->
   <section id="categories">
     <span class="categories-title">Our categories</span>
@@ -417,57 +478,68 @@
       <div class="categories-top">
 
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-1.png' %}" alt="category-image"></a>
+          <a href="{% url 'category' pk='Electronics & Gadgets' %}"><img class="category-image"
+              src="{% static 'images/assets/category-1.png' %}" alt="category-image"></a>
           <span class="category-name">Electronics & Gadgets</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-2.png' %}" alt="category-image"></a>
+          <a href="{% url 'category' pk='Gaming & Consoles' %}"><img class="category-image"
+              src="{% static 'images/assets/category-2.png' %}" alt="category-image"></a>
           <span class="category-name">Gaming & Consoles</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-3.png' %}" alt="category-image"></a>
+          <a href="{% url 'category' pk='Fashion & Apparel' %}"><img class="category-image"
+              src="{% static 'images/assets/category-3.png' %}" alt="category-image"></a>
           <span class="category-name">Fashion & Apparel</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-4.png' %}" alt="category-image"></a>
+          <a href="{% url 'category' pk='Jewelry & Accessories' %}"><img class="category-image"
+              src="{% static 'images/assets/category-4.png' %}" alt="category-image"></a>
           <span class="category-name">Jewelry & Accessories</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="{% static 'images/assets/category-5.png' %}" alt="category-image"></a>
+          <a href="{% url 'category' pk='Health & Beauty' %}"><img class="category-image"
+              src="{% static 'images/assets/category-5.png' %}" alt="category-image"></a>
           <span class="category-name">Health & Beauty</span>
         </div>
 
       </div>
 
-      <!-- <div class="categories-bottom">
+      <div class="categories-bottom">
 
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-6.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Sports & Fitness' %}"><img class="category-image"
+              src="{% static 'images/assets/category-6.png' %}" alt="category-image"></a>
           <span class="category-name">Sports & Fitness</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-7.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Pet Supplies' %}"><img class="category-image"
+              src="{% static 'images/assets/category-7.png' %}" alt="category-image"></a>
           <span class="category-name">Pet Supplies</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-8.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Toys & Kids' %}"><img class="category-image"
+              src="{% static 'images/assets/category-8.png' %}" alt="category-image"></a>
           <span class="category-name">Toys & Kids</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-9.png" alt="category-image"></a>
+          <a href="{% url 'category' pk='Books & Learning' %}"><img class="category-image"
+              src="{% static 'images/assets/category-9.png' %}" alt="category-image"></a>
           <span class="category-name">Books & Learning</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-10.png"
-              alt="category-image"></a>
+          <a href="{% url 'category' pk='Garden & Outdoor' %}"><img class="category-image"
+              src="{% static 'images/assets/category-10.png' %}" alt="category-image"></a>
           <span class="category-name">Garden & Outdoor</span>
         </div>
 
-      </div> -->
+      </div>
 
     </div>
   </section>
   <!-- categories ends -->
+
+
 
   <!-- explore hero starts -->
   <section id="explore-hero">
@@ -476,6 +548,8 @@
     </div>
   </section>
   <!-- explore hero ends -->
+
+
 
   <!-- explore starts -->
   <span id="explore-title">Explore</span>
@@ -523,6 +597,8 @@
 
   </section>
   <!-- explore ends -->
+
+
 
   {% endif %}
 
