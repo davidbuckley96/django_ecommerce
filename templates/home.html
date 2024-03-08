@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 
 <!-- adicionar a função de adicionar aos faviritos -->
-<!-- adicionar funcionalidade de buscar produtos (mudar nome da página para search) -->
+<!-- adicionar estilo e html para home durante busca de produtos -->
 <!-- arrumar o botão de favorito desalinhado (também em 'explore', na página home)-->
 <!-- colocar o coração preto com opacidade 0 durante hover (ficar apenas o roxo nessa hora) -->
 <!-- adicionar margin no card (margin bottom do preço e botão de carrinho) -->
@@ -108,32 +109,32 @@
   <section id="customer-info">
     <div id="customer-buttons">
       <div class="customer-button">
-        <div class="customer-button-top"><img src="../static/images/assets/wallet-icon.png" alt="wallet-icon">
+        <div class="customer-button-top"><img src="{% static 'images/assets/wallet-icon.png' %}" alt="wallet-icon">
         </div>
         <div>Pay with total security</div>
       </div>
       <div class="customer-button">
-        <div class="customer-button-top"><img src="../static/images/assets/dollar-icon.png" alt="dollar-icon">
+        <div class="customer-button-top"><img src="{% static 'images/assets/dollar-icon.png' %}" alt="dollar-icon">
         </div>
         <div>Best prices on our site</div>
       </div>
       <div class="customer-button">
-        <div class="customer-button-top"><img src="../static/images/assets/support-icon.png" alt="support-icon">
+        <div class="customer-button-top"><img src="{% static 'images/assets/support-icon.png' %}" alt="support-icon">
         </div>
         <div>24/7 Customer support</div>
       </div>
       <div class="customer-button">
-        <div class="customer-button-top"><img src="../static/images/assets/cashback-icon.png" alt="refund-icon">
+        <div class="customer-button-top"><img src="{% static 'images/assets/cashback-icon.png' %}" alt="refund-icon">
         </div>
         <div>Refund policy guaranteed</div>
       </div>
       <div class="customer-button">
-        <div class="customer-button-top"><img src="../static/images/assets/shipping-icon.png" alt="shipping-icon">
+        <div class="customer-button-top"><img src="{% static 'images/assets/shipping-icon.png' %}" alt="shipping-icon">
         </div>
         <div>Global shipping available</div>
       </div>
       <div class="customer-button">
-        <div class="customer-button-top"><img src="../static/images/assets/thumbsup-icon.png" alt="thumbsup-icon">
+        <div class="customer-button-top"><img src="{% static 'images/assets/thumbsup-icon.png' %}" alt="thumbsup-icon">
         </div>
         <div>Trustworthy sellers only</div>
       </div>
@@ -175,7 +176,7 @@
             </label>
             <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
             <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+              class="update-cart explore-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
                 alt="cart-icon"></button>
           </div>
         </div>
@@ -214,7 +215,7 @@
               </label>
 
               <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-                class="update-cart highlights-cart"><img src="../static/images/assets/highlight-cart.png"
+                class="update-cart highlights-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
                   alt="cart-icon"></button>
             </div>
           </div>
@@ -237,23 +238,28 @@
       <div class="categories-top">
 
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-1.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-1.png' %}"
+              alt="category-image"></a>
           <span class="category-name">Electronics & Gadgets</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-2.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-2.png' %}"
+              alt="category-image"></a>
           <span class="category-name">Gaming & Consoles</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-3.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-3.png' %}"
+              alt="category-image"></a>
           <span class="category-name">Fashion & Apparel</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-4.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-4.png' %}"
+              alt="category-image"></a>
           <span class="category-name">Jewelry & Accessories</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-5.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-5.png' %}"
+              alt="category-image"></a>
           <span class="category-name">Health & Beauty</span>
         </div>
 
@@ -328,7 +334,7 @@
             </label>
             <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
             <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+              class="update-cart explore-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
                 alt="cart-icon"></button>
           </div>
         </div>
@@ -339,7 +345,7 @@
 
 
     <a href="javascript:;" class="explore-more">See more <span class="loading"><span></span></span><img
-        class="explore-more-icon" src="../static/images/assets/chevron-down-black.png" alt="chevron-down"></a>
+        class="explore-more-icon" src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-down"></a>
 
   </section>
   <!-- explore ends -->
@@ -388,7 +394,7 @@
               </label>
 
               <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-                class="update-cart highlights-cart"><img src="../static/images/assets/highlight-cart.png"
+                class="update-cart highlights-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
                   alt="cart-icon"></button>
             </div>
           </div>
@@ -411,23 +417,23 @@
       <div class="categories-top">
 
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-1.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-1.png' %}" alt="category-image"></a>
           <span class="category-name">Electronics & Gadgets</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-2.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-2.png' %}" alt="category-image"></a>
           <span class="category-name">Gaming & Consoles</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-3.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-3.png' %}" alt="category-image"></a>
           <span class="category-name">Fashion & Apparel</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-4.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-4.png' %}" alt="category-image"></a>
           <span class="category-name">Jewelry & Accessories</span>
         </div>
         <div class="category">
-          <a href="#"><img class="category-image" src="../static/images/assets/category-5.png" alt="category-image"></a>
+          <a href="#"><img class="category-image" src="{% static 'images/assets/category-5.png' %}" alt="category-image"></a>
           <span class="category-name">Health & Beauty</span>
         </div>
 
@@ -502,7 +508,7 @@
             </label>
             <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
             <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
+              class="update-cart explore-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
                 alt="cart-icon"></button>
           </div>
         </div>
@@ -513,7 +519,7 @@
 
 
     <a href="javascript:;" class="explore-more">See more <span class="loading"><span></span></span><img
-        class="explore-more-icon" src="../static/images/assets/chevron-down-black.png" alt="chevron-down"></a>
+        class="explore-more-icon" src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-down"></a>
 
   </section>
   <!-- explore ends -->

@@ -70,6 +70,15 @@ def product(request, pk):
     return render(request, 'product.html', context)
 
 
+def category(request, pk):
+    category = Category.objects.get(name=pk)
+    products = Product.objects.filter(category=category).order_by('-date_modified')
+    products_count = products.count()
+    
+    context = {'category': category, 'products': products, 'products_count': products_count}
+    return render(request, 'category.html', context)
+
+
 def register(request):
     form = RegistrationForm()
     if request.method == 'POST':

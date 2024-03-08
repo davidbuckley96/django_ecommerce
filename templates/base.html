@@ -70,15 +70,19 @@
         <!-- ADICIONAR ACCOUNT PAGE -->
         <!-- ADICIONAR ACCOUNT PAGE -->
         <!-- ADICIONAR ACCOUNT PAGE -->
+        <a href="{% url 'cart' %}" id="cart-icon"><img src="{% static 'images/assets/shopping-cart.png' %}"
+            alt="shopping-cart"><span id="cart-quantity">{{ order.get_cart_quantity }}</span></a>
 
         {% else %}
 
         <a href="{% url 'login' %}" id="nav-your-account"><img src="{% static 'images/assets/user-icon.png' %}"
             alt="user-icon">Log in</a>
+        <a href="{% url 'login' %}" id="cart-icon"><img src="{% static 'images/assets/shopping-cart.png' %}"
+            alt="shopping-cart"><span id="cart-quantity">{{ order.get_cart_quantity }}</span></a>
         {% endif %}
 
-        <a href="{% url 'cart' %}" id="cart-icon"><img src="{% static 'images/assets/shopping-cart.png' %}"
-            alt="shopping-cart"><span id="cart-quantity">{{ order.get_cart_quantity }}</span></a>
+        <!-- <a href="{% url 'cart' %}" id="cart-icon"><img src="{% static 'images/assets/shopping-cart.png' %}"
+            alt="shopping-cart"><span id="cart-quantity">{{ order.get_cart_quantity }}</span></a> -->
       </div>
       <span id="navbar-separator"></span>
 
@@ -93,15 +97,14 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               {% for category in categories %}
-              <li><a class="dropdown-item" href="{% url 'home' %}?q={{category}}">{{ category.name }}</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' pk=category.name %}">{{ category.name }}</a></li>
               {% endfor %}
             </ul>
           </div>
 
-
-          <a href="#highlights-title">Highlights</a>
-          <a href="#categories">Categories</a>
-          <a href="#explore-title">Explore</a>
+          <a href="{% url 'home' %}#highlights-title">Highlights</a>
+          <a href="{% url 'home' %}#categories">Categories</a>
+          <a href="{% url 'home' %}#explore-title">Explore</a>
 
         </div>
       </div>

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+
+  <section id="categories">
+    <!-- categories hero starts -->
+    <div class="categories-hero">
+      <div class="categories-hero-title">
+        <span>{{ category.name }}</span>
+      </div>
+    </div>
+    <!-- categories hero ends -->
+
+    <!-- categories menu starts -->
+    <div class="categories-menu">
+      <a class="categories-menu-item-1" href="#">
+        <span>Product type</span><img src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-black">
+      </a>
+      <a class="categories-menu-item-2" href="#">
+        <span>Price</span><img src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-black">
+      </a>
+      <a class="categories-menu-item-3" href="#">
+        <span>Order by</span><img src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-black">
+      </a>
+
+      <span class="categories-menu-item-4">Total of {{ products_count }} products</span>
+    </div>
+    <!-- categories menu ends -->
+
+    <!-- art starts -->
+    <img class="background-art" src="{% static 'images/assets/categories/background-pattern.png' %}" alt="pattern">
+    <!-- art ends -->
+
+    <!-- categories items starts -->
+    <div class="all-categories">
+      <div class="categories-rows">
+
+
+        {% for product in products %}
+        <div class="categories-row-item">
+          <img class="categories-item-image" src="{{ product.image.url }}" alt="product-image">
+          <div class="categories-item-info">
+            <div class="categories-item-info-top">
+              <div class="categories-item-info-top-left">
+                {% if product.discount %}
+                <span class="categories-price-old">€ {{ product.price|floatformat:2 }}</span>
+                <span class="categories-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+                {% else %}
+                <span class="categories-price-new">€ {{ product.price|floatformat:2 }}</span>
+                {% endif %}
+                <span class="categories-description">{{ product.name }}</span>
+              </div>
+              <div class="categories-item-info-top-right">
+                <label for="categories-favorite-{{ product.id }}" class="custom-checkbox-3">
+                  <input type="checkbox" id="categories-favorite-{{ product.id }}">
+                  <i class="categories-e glyphicon glyphicon-heart-empty"></i>
+                  <i class="categories-f glyphicon glyphicon-heart"></i>
+                </label>
+              </div>
+            </div>
+            <div class="categories-item-info-bottom">
+              <button id="add-cart" data-product="{{ product.id }}" data-action="add" class="update-cart"><img
+                  src="{% static 'images/assets/shopping-cart.png' %}" alt="cart-icon">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+    <!-- categories items ends -->
+
+
+    <div class="categories-next-button">
+      <a href="javascript:;" class="category-more">See more <span class="loading-3"><span></span></span><img
+          class="category-more-icon" src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-down"></a>
+    </div>
+  </section>
+</main>
+
+<script>
+  const categoryMore = document.querySelector('.category-more');
+  const totalCategories = document.querySelector('.total-categories');
+  let currentItems = 8;
+
+  categoryMore.addEventListener('click', (e) => {
+    const elementList = [...document.querySelectorAll('.categories-row-item')];
+    e.target.classList.add('show-loader');
+
+    for (let i = currentItems; i < currentItems + 8; i++) {
+      setTimeout(function () {
+        e.target.classList.remove('show-loader');
+
+        if (elementList[i]) {
+          elementList[i].style.display = 'flex';
+        }
+      }, 3000)
+    }
+    currentItems += 8;
+
+
+    // hide load button after fully load items
+    if (currentItems >= elementList.length) {
+      event.target.classList.add('loaded')
+    }
+
+  })
+</script>
+
+{% endblock content %}

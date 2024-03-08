@@ -42,18 +42,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# class Discount(models.Model):
-#     discount_percent = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-#     active = models.BooleanField(default=False)
-#     remaining_time = models.DateField()
-#
-#     class Meta:
-#         ordering = ['-discount_percent']
-#
-#     def __str__(self):
-#         return str(self.discount_percent)
     
 
 class Product(models.Model):
