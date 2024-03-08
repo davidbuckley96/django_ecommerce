@@ -536,13 +536,32 @@ li {
   display: block;
 }
 
-.load-more.loaded {
+.reviews-more.loaded {
   visibility: hidden;
   opacity: 0;
   height: 0;
   transition: visibility .3s 3s, opacity .3s 3s, height .3s 3s;
 }
 
+
+.reviews-more {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+  color: black;
+
+  display: inline-block;
+  padding: 10.5px 12px 10.5px 20px;
+  border: 1px solid var(--color4);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.reviews-more:hover,
+.reviews-more:focus {
+  text-decoration: none;
+  color: var(--color4);
+}
 
 
 /* reviews ends */
@@ -578,29 +597,8 @@ li {
 .related-product .top .related-product-image {
   height: 228.77px;
   width: 217.6px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
-
-.related-product .top .image-1 {
-  background: url(../images/assets/product/related-1.png);
-}
-
-.related-product .top .image-2 {
-  background: url(../images/assets/product/related-2.png);
-}
-
-.related-product .top .image-3 {
-  background: url(../images/assets/product/related-3.png);
-}
-
-.related-product .top .image-4 {
-  background: url(../images/assets/product/related-4.png);
-}
-
-.related-product .top .image-5 {
-  background: url(../images/assets/product/related-5.png);
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .related-product .top span {
@@ -660,29 +658,8 @@ li {
 .bought-product .top .bought-product-image {
   height: 228.77px;
   width: 217.6px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
-
-.bought-product .top .image-1 {
-  background: url(../images/assets/product/bought-1.png);
-}
-
-.bought-product .top .image-2 {
-  background: url(../images/assets/product/bought-2.png);
-}
-
-.bought-product .top .image-3 {
-  background: url(../images/assets/product/bought-3.png);
-}
-
-.bought-product .top .image-4 {
-  background: url(../images/assets/product/bought-4.png);
-}
-
-.bought-product .top .image-5 {
-  background: url(../images/assets/product/bought-5.png);
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .bought-product .top span {

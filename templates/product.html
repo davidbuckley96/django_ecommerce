@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- adicionar em Product 'seller', 'about', 'details', 'reviews' -->
-
+<!-- change show more button -->
 
 <main id="product-page">
   <!-- menu starts -->
@@ -59,8 +59,12 @@
       <div class="product-main-info">
 
         <div class="product-main-info-prices">
+          {% if product.discount %}
           <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
           <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+          {% else %}
+          <span class="new-price">€ {{ product.price|floatformat:2 }}</span>
+          {% endif %}
         </div>
 
         {% if product.digital %}
@@ -125,7 +129,7 @@
 
         </div>
 
-        
+
         <div class="middle">
           <span>{{ review.body }}</span>
         </div>
@@ -166,60 +170,23 @@
     <span class="title">Discover related products</span>
     <div class="related-products">
 
+      {% for product in related_products %}
       <div class="related-product">
         <div class="top">
-          <div class="related-product-image image-1"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
+          <a href="{% url 'product' pk=product.id %}"><img class="related-product-image" src="{{ product.image.url }}" alt="product-image"></a>
+          <span>{{ product.name }}</span>
         </div>
         <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
+          {% if product.discount %}
+          <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+          <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+          {% else %}
+          <span class="new-price">€ {{ product.price|floatformat:2 }}</span>
+          {% endif %}
         </div>
       </div>
+      {% endfor %}
 
-      <div class="related-product">
-        <div class="top">
-          <div class="related-product-image image-2"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
-
-      <div class="related-product">
-        <div class="top">
-          <div class="related-product-image image-3"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
-
-      <div class="related-product">
-        <div class="top">
-          <div class="related-product-image image-4"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
-
-      <div class="related-product">
-        <div class="top">
-          <div class="related-product-image image-5"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
     </div>
   </div>
   <!-- related ends -->
@@ -229,60 +196,23 @@
     <span class="title">Customers also bought</span>
     <div class="bought-products">
 
+      {% for product in customer_bought %}
       <div class="bought-product">
         <div class="top">
-          <div class="bought-product-image image-1"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
+          <a href="{% url 'product' pk=product.id %}"><img class="bought-product-image" src="{{ product.image.url }}" alt="product-image"></a>
+          <span>{{ product.name }}</span>
         </div>
         <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
+          {% if product.discount %}
+          <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+          <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+          {% else %}
+          <span class="new-price">€ {{ product.price|floatformat:2 }}</span>
+          {% endif %}
         </div>
       </div>
+      {% endfor %}
 
-      <div class="bought-product">
-        <div class="top">
-          <div class="bought-product-image image-2"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
-
-      <div class="bought-product">
-        <div class="top">
-          <div class="bought-product-image image-3"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
-
-      <div class="bought-product">
-        <div class="top">
-          <div class="bought-product-image image-4"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
-
-      <div class="bought-product">
-        <div class="top">
-          <div class="bought-product-image image-5"></div>
-          <span>Product name lorem ipsum lorem ipsum lorem ipsum</span>
-        </div>
-        <div class="bottom">
-          <span class="new-price">€ 3,00</span>
-          <span class="old-price">€ 6,00</span>
-        </div>
-      </div>
     </div>
   </div>
   <!-- bought ends -->

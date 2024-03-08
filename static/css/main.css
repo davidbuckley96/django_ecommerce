@@ -126,10 +126,6 @@
   border: none;
 }
 
-.dropdown {
-  background-color: tomato !important;
-}
-
 .nav-links {
   font-size: 14px;
   font-weight: 500;
@@ -389,8 +385,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* margin: 8px; */
-  /* background-color: aqua; */
 }
 
 .highlight-name {
@@ -477,8 +471,16 @@ highlight-f {
   opacity: 0.5;
 }
 
+.custom-checkbox:hover .highlight-e {
+  opacity: 0;
+}
+
 .custom-checkbox input[type="checkbox"]:checked~.highlight-f {
   opacity: 1;
+}
+
+.custom-checkbox input[type="checkbox"]:checked~.highlight-e {
+  opacity: 0;
 }
 
 .highlights-cart {
@@ -620,7 +622,6 @@ highlight-f {
 
 .explore-all {
   max-width: 1300px;
-  /* background-color: aqua; */
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -682,6 +683,7 @@ button.explore-cart {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20.5px;
+  padding-bottom: 20.5px;
 }
 
 .explore-info {
@@ -719,20 +721,19 @@ button.explore-cart {
 }
 
 .explore-buttons {
-  /* height: 80px; */
   width: 28.77px;
+  height: 70px;
   position: relative;
-  /* bottom: 14px; */
   right: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  /* background-color: red; */
 }
 
 .custom-checkbox-2 {
   cursor: pointer;
+  position: relative;
+  top: 18px;
 }
 
 .glyphicon-heart {
@@ -741,20 +742,19 @@ button.explore-cart {
 
 .custom-checkbox-2 .favourite-2-e {
   color: var(--color1);
-}
-
-.custom-checkbox-2,
-.favourite-2-e,
-.favourite-2-f {
-  /* position: absolute; */
-  /* bottom: 300px; */
   position: absolute;
   /* top: 20px; */
+  /* margin-bottom: 30px; */
+}
+
+.custom-checkbox-2 .favourite-2-e,
+.favourite-2-f {
+
   font-weight: 100;
   color: var(--color1);
-  /* top: 24px; */
   left: 0.3px;
-  bottom: 55px;
+
+  /* margin-bottom: -30px; */
 }
 
 .custom-checkbox-2 .favourite-2-f {
@@ -766,21 +766,22 @@ button.explore-cart {
   opacity: 0.5;
 }
 
+.custom-checkbox-2:hover .favourite-2-e {
+  opacity: 0;
+}
+
 .custom-checkbox-2 input[type="checkbox"]:checked~.favourite-2-f {
   opacity: 1;
 }
 
-.favourite-2-f {
-  color: var(--color4);
-  /* margin-top: -30px; */
-  margin-top: -1.5px;
+.custom-checkbox-2 input[type="checkbox"]:checked~.favourite-2-e {
+  opacity: 0;
 }
-
 
 .explore-cart {
   width: 28.77px;
   position: relative;
-  top: 40px;
+  top: 10px;
 }
 
 .explore-more {

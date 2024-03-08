@@ -259,7 +259,7 @@
 
       </div>
 
-      <div class="categories-bottom">
+      <!-- <div class="categories-bottom">
 
         <div class="category">
           <a href="#"><img class="category-image" src="../static/images/assets/category-6.png" alt="category-image"></a>
@@ -283,7 +283,7 @@
           <span class="category-name">Garden & Outdoor</span>
         </div>
 
-      </div>
+      </div> -->
 
     </div>
   </section>
@@ -301,9 +301,8 @@
   <span id="explore-title">Explore</span>
   <section id="explore">
 
-    <div class="explore-row">
-
-      {% for product in recent_products_1 %}
+    <div class="explore-all">
+      {% for product in recent_products %}
       <div class="explore-item">
         <div class="explore-item-top">
           <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
@@ -335,90 +334,12 @@
         </div>
       </div>
       {% endfor %}
-
+    </div>
     </div>
 
 
-
-    <div class="explore-row">
-
-      {% for product in recent_products_2 %}
-      <div class="explore-item">
-        <div class="explore-item-top">
-          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
-              alt="Explore 3"></a>
-        </div>
-        <div class="explore-item-bottom">
-          <div class="explore-info">
-            <span class="explore-name">{{ product.name|truncatechars:55 }}</span>
-            <div class="explore-prices">
-              {% if product.discount %}
-              <span class="explore-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
-              <span class="explore-price-old">€ {{ product.price|floatformat:2 }}</span>
-              {% else %}
-              <span class="explore-price-new">€ {{ product.price|floatformat:2 }}</span>
-              {% endif %}
-            </div>
-          </div>
-          <div class="explore-buttons">
-            <label for="explore-favorite-{{product.id}}" class="custom-checkbox-2">
-              <input type="checkbox" id="explore-favorite-{{product.id}}">
-              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
-              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
-            </label>
-            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
-            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
-                alt="cart-icon"></button>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
-
-
-
-    <div class="explore-row">
-
-      {% for product in recent_products_3 %}
-      <div class="explore-item">
-        <div class="explore-item-top">
-          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
-              alt="Explore 3"></a>
-        </div>
-        <div class="explore-item-bottom">
-          <div class="explore-info">
-            <span class="explore-name">{{ product.name|truncatechars:55 }}</span>
-            <div class="explore-prices">
-              {% if product.discount %}
-              <span class="explore-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
-              <span class="explore-price-old">€ {{ product.price|floatformat:2 }}</span>
-              {% else %}
-              <span class="explore-price-new">€ {{ product.price|floatformat:2 }}</span>
-              {% endif %}
-            </div>
-          </div>
-          <div class="explore-buttons">
-            <label for="explore-favorite-{{product.id}}" class="custom-checkbox-2">
-              <input type="checkbox" id="explore-favorite-{{product.id}}">
-              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
-              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
-            </label>
-            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
-            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-              class="update-cart explore-cart"><img src="../static/images/assets/highlight-cart.png"
-                alt="cart-icon"></button>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
-
-
-    <a href="#" class="explore-more">See more <img class="explore-more-icon"
-        src="../static/images/assets/chevron-down-black.png" alt="chevron-down"></a>
+    <a href="javascript:;" class="explore-more">See more <span class="loading"><span></span></span><img
+        class="explore-more-icon" src="../static/images/assets/chevron-down-black.png" alt="chevron-down"></a>
 
   </section>
   <!-- explore ends -->
@@ -512,7 +433,7 @@
 
       </div>
 
-      <div class="categories-bottom">
+      <!-- <div class="categories-bottom">
 
         <div class="category">
           <a href="#"><img class="category-image" src="../static/images/assets/category-6.png" alt="category-image"></a>
@@ -536,7 +457,7 @@
           <span class="category-name">Garden & Outdoor</span>
         </div>
 
-      </div>
+      </div> -->
 
     </div>
   </section>

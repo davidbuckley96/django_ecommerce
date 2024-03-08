@@ -4191,15 +4191,16 @@ fieldset:disabled .btn {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 10px var(--bs-dropdown-item-padding-x) !important;
+  padding: 14px var(--bs-dropdown-item-padding-x) !important;
   clear: both;
-  margin-left: -15px !important;
+  margin: -5px 0 !important;
+  /* margin-left: -15px !important; */
   font-weight: 400;
   color: rgba(165, 165, 165, 1) !important;
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: rgba(16, 16, 16, 1) !important;
   border: 0;
   border-radius: var(--bs-dropdown-item-border-radius, 0);
 }

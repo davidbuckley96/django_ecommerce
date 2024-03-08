@@ -62,8 +62,11 @@ def product(request, pk):
     description_lines = product.description.split('\n')
     reviews = product.review_set.all()
     reviews_length = len(reviews)
+
+    related_products = Product.objects.filter(category=product.category).order_by('-date_modified')[:5]
+    customer_bought = Product.objects.all().order_by('-discount_percent')[:5]
   
-    context = {'product': product, 'delivery_time': delivery_time, 'description_lines': description_lines, 'reviews': reviews, 'reviews_length': reviews_length}
+    context = {'product': product, 'delivery_time': delivery_time, 'description_lines': description_lines, 'reviews': reviews, 'reviews_length': reviews_length, 'related_products': related_products, 'customer_bought': customer_bought}
     return render(request, 'product.html', context)
 
 
