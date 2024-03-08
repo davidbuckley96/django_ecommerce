@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 :root {
@@ -17,11 +18,6 @@
   --color5: rgba(61, 61, 61, 1);
 }
 
-#main-home::before {
-  display: block;
-  content: '';
-  height: 91px;
-}
 
 /* NAVBAR STARTS */
 /* NAVBAR STARTS */
@@ -977,7 +973,7 @@ highlight-f {
   flex-wrap: wrap;
   column-gap: 14px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   row-gap: 38px;
 }
 
@@ -1158,7 +1154,7 @@ button.explore-cart {
   bottom: 1.8px;
 }
 
-.explore-item:nth-child(8)~.explore-item {
+.explore-item:nth-child(12)~.explore-item {
   display: none;
 }
 

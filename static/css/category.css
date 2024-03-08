@@ -1,9 +1,3 @@
-main::before {
-  display: block;
-  content: '';
-  height: 0;
-}
-
 /* CATEGORIES HERO STARTS */
 /* CATEGORIES HERO STARTS */
 /* CATEGORIES HERO STARTS */
@@ -13,6 +7,9 @@ main::before {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+
+  display: inline-block;
+  width: 100%;
 
   height: 360px;
 

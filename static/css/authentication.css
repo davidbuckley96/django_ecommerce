@@ -1,0 +1,166 @@
+header::after {
+  display: block;
+  content: '';
+  height: 98px;
+}
+
+/* LOGIN STARTS */
+/* LOGIN STARTS */
+/* LOGIN STARTS */
+
+#authentication {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 82px;
+}
+
+#authentication .title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+}
+
+#authentication .subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+#authentication .subtitle a {
+  font-weight: 600;
+  color: var(--color4);
+  text-decoration: none;
+}
+
+#authentication .subtitle a:hover {
+  text-decoration: underline;
+}
+
+.login-container .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 17px;
+  width: 378px;
+}
+
+.login-form label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.login-form label.password-title {
+  margin-top: 24px;
+}
+
+.login-form input {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  height: 39px;
+  width: 376px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.login-form input:active {
+  border: none;
+
+}
+
+.login-container .login-form a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: var(--color4);
+  font-weight: 600;
+  text-decoration: none;
+
+  margin-top: 12px;
+}
+
+.login-container .login-form a:hover {
+  text-decoration: underline;
+}
+
+.login-form .login-button {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--color4);
+  color: white;
+  width: 87px;
+  height: 35px;
+  align-self: center;
+  margin-top: 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+.accounts-subtitle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.accounts-subtitle {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  font-size: 12px;
+}
+
+.accounts-subtitle>hr {
+  display: inline-block;
+  width: 102.5px;
+  margin: 0 6px;
+}
+
+/* accounts login */
+/* accounts login */
+/* accounts login */
+
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.accounts-container button {
+  width: 378px;
+  height: 39px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(94, 94, 94, 1);
+}
+
+.google-login img {
+  padding-left: 18px;
+  margin-right: 87px;
+}
+
+.facebook-login {
+  margin-top: 24px;
+  margin-bottom: 82px;
+}
+
+.facebook-login img {
+  padding-left: 18px;
+  margin-right: 79.5px;
+}
+
+/* LOGIN ENDS */
+/* LOGIN ENDS */
+/* LOGIN ENDS */
+
+/* REGISTER STARTS */
+/* REGISTER STARTS */
+/* REGISTER STARTS */

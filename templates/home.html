@@ -10,7 +10,7 @@
 <!-- mudar o carrossel para clicar, em vez de automático -->
 <!-- criar páginas para highlights, categorias, explore -->
 <!-- em product.html, talvez deixar apenas as últimas 4 reviews, em vez de todas? -->
-
+<!-- mudar carrossel -->
 
 {% if page == 'search' %}
 <h1>Your search:</h1>
@@ -652,13 +652,13 @@
 
 <script>
   const exploreMore = document.querySelector('.explore-more');
-  let currentItems = 8;
+  let currentItems = 12;
 
   exploreMore.addEventListener('click', (e) => {
     const elementList = [...document.querySelectorAll('.explore-item')];
     e.target.classList.add('show-loader');
 
-    for (let i = currentItems; i < currentItems + 8; i++) {
+    for (let i = currentItems; i < currentItems + 12; i++) {
       setTimeout(function () {
         e.target.classList.remove('show-loader');
 
@@ -667,7 +667,7 @@
         }
       }, 1300)
     }
-    currentItems += 8;
+    currentItems += 12;
 
     // hide load button after fully load items
     if (currentItems >= elementList.length) {
