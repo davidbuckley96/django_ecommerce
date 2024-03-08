@@ -148,50 +148,52 @@
 
   {% if page == 'search' %}
 
-  <span id="search-title">Search results</span>
+
   <section id="search">
+    <span class="title">Search results</span>
 
-    <div class="search-container">
-
-      {% for product in recent_products_1 %}
-      <div class="search-item">
-        <div class="search-item-top">
-          <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
-              alt="Search {{product.id}}"></a>
-        </div>
-        <div class="search-item-bottom">
-          <div class="search-info">
-            <span class="search-name">{{ product.name|truncatechars:55 }}</span>
-            <div class="search-prices">
-              {% if product.discount %}
-              <span class="search-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
-              <span class="search-price-old">€ {{ product.price|floatformat:2 }}</span>
-              {% else %}
-              <span class="search-price-new">€ {{ product.price|floatformat:2 }}</span>
-              {% endif %}
+    <div class="search-all-container">
+      <div class="search-all">
+        {% for product in products %}
+        <div class="search-item">
+          <div class="search-item-top">
+            <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+                alt="search-item"></a>
+          </div>
+          <div class="search-item-bottom">
+            <div class="search-info">
+              <span class="search-name">{{ product.name|truncatechars:55 }}</span>
+              <div class="search-prices">
+                {% if product.discount %}
+                <span class="search-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+                <span class="search-price-old">€ {{ product.price|floatformat:2 }}</span>
+                {% else %}
+                <span class="search-price-new">€ {{ product.price|floatformat:2 }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="search-buttons">
+              <label for="search-favorite-{{product.id}}" class="custom-checkbox-3">
+                <input type="checkbox" id="search-favorite-{{product.id}}">
+                <i class="favourite-3-e glyphicon glyphicon-heart-empty"></i>
+                <i class="favourite-3-f glyphicon glyphicon-heart"></i>
+              </label>
+              <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+              <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                class="update-cart search-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                  alt="cart-icon"></button>
             </div>
           </div>
-          <div class="search-buttons">
-            <label for="search-favorite-{{product.id}}" class="custom-checkbox-2">
-              <input type="checkbox" id="search-favorite-{{product.id}}">
-              <i class="favourite-2-e glyphicon glyphicon-heart-empty"></i>
-              <i class="favourite-2-f glyphicon glyphicon-heart"></i>
-            </label>
-            <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
-            <button id="add-cart" data-product="{{ product.id }}" data-action="add"
-              class="update-cart explore-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
-                alt="cart-icon"></button>
-          </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-
     </div>
   </section>
 
   <!-- higllights starts -->
-  <span id="highlights-title">Today's Highlights</span>
+
   <section id="highlights">
+    <span id="highlights-title">Today's Highlights</span>
     <!-- carousel starts -->
     <div class="slider">
 
@@ -234,14 +236,58 @@
 
 
 
+  <!-- bestsellers starts -->
+  <section id="bestsellers">
+    <span class="title">Best sellers</span>
+    <div class="bestsellers-all-container">
+      <div class="bestsellers-all">
+        {% for product in best_sellers %}
+        <div class="bestseller-item">
+          <div class="bestseller-item-top">
+            <a href="{% url 'product' pk=product.id %}"><img class="image" src="{{ product.image.url}}"
+                alt="bestseller-item"></a>
+          </div>
+          <div class="bestseller-item-bottom">
+            <div class="bestseller-info">
+              <span class="bestseller-name">{{ product.name|truncatechars:55 }}</span>
+              <div class="bestseller-prices">
+                {% if product.discount %}
+                <span class="bestseller-price-new">€ {{ product.discount_price|floatformat:2 }}</span>
+                <span class="bestseller-price-old">€ {{ product.price|floatformat:2 }}</span>
+                {% else %}
+                <span class="bestseller-price-new">€ {{ product.price|floatformat:2 }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="bestseller-buttons">
+              <label for="bestseller-favorite-{{product.id}}" class="custom-checkbox-3">
+                <input type="checkbox" id="bestseller-favorite-{{product.id}}">
+                <i class="favourite-3-e glyphicon glyphicon-heart-empty"></i>
+                <i class="favourite-3-f glyphicon glyphicon-heart"></i>
+              </label>
+              <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
+              <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                class="update-cart bestseller-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                  alt="cart-icon"></button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- bestsellers ends -->
+
+
+
   <!-- categories starts -->
   <section id="categories">
     <span class="categories-title">Our categories</span>
-  
+
     <div class="categories-all">
-  
+
       <div class="categories-top">
-  
+
         <div class="category">
           <a href="{% url 'category' pk='Electronics & Gadgets' %}"><img class="category-image"
               src="{% static 'images/assets/category-1.png' %}" alt="category-image"></a>
@@ -267,11 +313,11 @@
               src="{% static 'images/assets/category-5.png' %}" alt="category-image"></a>
           <span class="category-name">Health & Beauty</span>
         </div>
-  
+
       </div>
-  
+
       <div class="categories-bottom">
-  
+
         <div class="category">
           <a href="{% url 'category' pk='Sports & Fitness' %}"><img class="category-image"
               src="{% static 'images/assets/category-6.png' %}" alt="category-image"></a>
@@ -297,9 +343,9 @@
               src="{% static 'images/assets/category-10.png' %}" alt="category-image"></a>
           <span class="category-name">Garden & Outdoor</span>
         </div>
-  
+
       </div>
-  
+
     </div>
   </section>
   <!-- categories ends -->
@@ -425,7 +471,7 @@
 
 
 
-<!-- bestsellers starts -->
+  <!-- bestsellers starts -->
   <section id="bestsellers">
     <span class="title">Best sellers</span>
     <div class="bestsellers-all-container">
@@ -465,7 +511,7 @@
       </div>
     </div>
   </section>
-<!-- bestsellers ends -->
+  <!-- bestsellers ends -->
 
 
 

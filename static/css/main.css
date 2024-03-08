@@ -285,13 +285,190 @@
 /* CUSTOMER SERVICES ENDS */
 /* CUSTOMER SERVICES ENDS */
 
+/* SEARCH STARTS */
+/* SEARCH STARTS */
+/* SEARCH STARTS */
+/* #search {
+  margin-top: 82px;
+}
+
+#search>span {
+  font-weight: 700;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 34px;
+  margin-left: 64px;
+} */
+
+#search>span {
+  font-weight: 700;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 34px;
+  margin-left: 38px;
+}
+
+#search {
+  margin: 82px auto 0 auto;
+  /* margin: auto; */
+  width: 1300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+.search-all {
+  margin: 48px 0 0 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 24px;
+  row-gap: 48px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-item {
+  height: 313px;
+  width: 290px;
+
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-item-top {
+  width: 290px;
+  height: 228px;
+}
+
+.search-item-top .image {
+  width: 290px;
+  height: 228px;
+  object-fit: cover;
+}
+
+.search-item-bottom {
+  width: 290px;
+  height: 84px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20.5px;
+  padding-bottom: 20.5px;
+}
+
+.search-info {
+  max-width: 226px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.search-name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: var(--color4);
+  margin: 8px 0 0 12px;
+}
+
+.search-prices {
+  display: flex;
+  align-items: center;
+  margin-bottom: -15px;
+}
+
+.search-price-new {
+  color: var(--color4);
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 12px;
+}
+
+.search-price-old {
+  font-size: 14px;
+  color: var(--color5);
+  margin-left: 15.85px;
+  text-decoration: line-through;
+}
+
+.search-buttons {
+  width: 28.77px;
+  height: 70px;
+  position: relative;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.custom-checkbox-4 {
+  cursor: pointer;
+  position: relative;
+  top: 18px;
+}
+
+.custom-checkbox-4 .favourite-4-e {
+  color: var(--color1);
+  position: absolute;
+  /* top: 20px; */
+  /* margin-bottom: 30px; */
+}
+
+.custom-checkbox-4 .favourite-4-e,
+.favourite-3-f {
+
+  font-weight: 100;
+  color: var(--color1);
+  left: 0.3px;
+
+  /* margin-bottom: -30px; */
+}
+
+.custom-checkbox-4 .favourite-4-f {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.custom-checkbox-4:hover .favourite-4-f {
+  opacity: 0.5;
+}
+
+.custom-checkbox-4:hover .favourite-4-e {
+  opacity: 0;
+}
+
+.custom-checkbox-4 input[type="checkbox"]:checked~.favourite-4-f {
+  opacity: 1;
+}
+
+.custom-checkbox-4 input[type="checkbox"]:checked~.favourite-4-e {
+  opacity: 0;
+}
+
+.search-cart {
+  width: 28.77px;
+  position: relative;
+  top: 10px;
+  border: none;
+}
+
+/* SEARCH ENDS */
+/* SEARCH ENDS */
+/* SEARCH ENDS */
+
 
 /* HIGHLIGHTS STARTS */
 /* HIGHLIGHTS STARTS */
 /* HIGHLIGHTS STARTS */
 #highlights-title {
   display: inline-block;
-  margin: 82px 0 48px 64px;
+  margin: 82px 0 48px 40px;
 
   font-family: 'Josefin Sans', sans-serif;
   font-size: 34px;
@@ -299,13 +476,17 @@
 }
 
 #highlights {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: aqua; */
+  width: 1300px;
+  margin: auto;
 }
 
 .slider {
   height: 418px;
-  width: 90%;
+  width: 1210px;
   margin: auto;
   border-radius: 8px;
 
@@ -665,11 +846,12 @@ highlight-f {
 /* CATEGORIES STARTS */
 /* CATEGORIES STARTS */
 #categories {
-  margin-top: 82px;
+  margin: 82px auto 0 auto;
+  width: 1300px;
 }
 
 .categories-title {
-  margin: 0 0 58px 64px;
+  margin: 0 0 58px 40px;
 
   font-size: 34px;
   font-weight: 700;
@@ -682,6 +864,7 @@ highlight-f {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .categories-top,

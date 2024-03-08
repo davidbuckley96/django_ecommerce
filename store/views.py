@@ -19,6 +19,8 @@ def teste2(request):
     return render(request, 'test-category.html')
 def teste3(request):
     return render(request, 'test-product.html')
+def teste4(request):
+    return render(request, 'test-login.html')
 # teste template CSS
 # teste template CSS
 # teste template CSS
@@ -46,7 +48,7 @@ def home(request):
         Q(name__icontains=q) |
         Q(category__name__icontains=q) |
         Q(description__icontains=q)
-    )
+    ).order_by('name')
     products_count = products.count()
 
     context = {'recent_products': recent_products, 'categories': categories, 'sales_products': sales_products,
