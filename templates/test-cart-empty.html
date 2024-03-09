@@ -1,9 +1,67 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <main id="cart">
-  <h1>hello world</h1>
+  <div class="cart-page-container">
+    <div class="left">
+      <span>Your shopping cart</span>
+      <div class="cart-container">
+        <img src="{% static 'images/assets/cart/cart-empty.png' %}" alt="cart-empty">
+        <span class="empty-title">Your LuxNexus cart is empty</span>
+
+        <div class="empty-cart-buttons">
+          <a href="{% url 'login' %}" class="sign-in hovering-button"><span>Sign in</span></a>
+          <ul>
+            <li><span class="register"><a href="{% url 'register' %}">Register</a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <span>Explore our products</span>
+      <div class="explore-container">
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <span class="price-old">€ 6,00</span>
+            <span class="price-new">€ 3,00</span>
+          </div>
+        </div>
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <span class="price-old">€ 6,00</span>
+            <span class="price-new">€ 3,00</span>
+          </div>
+        </div>
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <span class="price-old">€ 6,00</span>
+            <span class="price-new">€ 3,00</span>
+          </div>
+        </div>
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <span class="price-old">€ 6,00</span>
+            <span class="price-new">€ 3,00</span>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
 
 </main>
 
