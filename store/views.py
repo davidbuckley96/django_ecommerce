@@ -25,6 +25,8 @@ def teste5(request):
     return render(request, 'test-register.html')
 def teste6(request):
     return render(request, 'test-cart-empty.html')
+def teste7(request):
+    return render(request, 'test-cart-empty-login.html')
 # teste template CSS
 # teste template CSS
 # teste template CSS

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- tornar o link para 'explore' funcional -->
+
+{% block content %}
+
+<main id="cart">
+  <div class="cart-page-container">
+    <div class="left">
+      <span>Your shopping cart</span>
+      <div class="cart-container">
+        <img src="{% static 'images/assets/cart/cart-empty.png' %}" alt="cart-empty">
+        <span class="empty-title">Your LuxNexus cart is empty</span>
+
+        <div class="empty-cart-buttons">
+          <a class="empty-cart-button-explore" href="{% url 'home' %}#explore-title">Discover today's highlights</a>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <span>Explore our products</span>
+      <div class="explore-container">
+
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <div class="bottom">
+              <div class="left">
+                <span class="price-old">€ 6,00</span>
+                <span class="price-new">€ 3,00</span>
+              </div>
+              <div class="right">
+                <label for="bestseller-favorite-{{product.id}}" class="custom-checkbox-cart">
+                  <input type="checkbox" id="bestseller-favorite-{{product.id}}">
+                  <i class="cart-e glyphicon glyphicon-heart-empty"></i>
+                  <i class="cart-f glyphicon glyphicon-heart"></i>
+                </label>
+                <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                  class="update-cart cart-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                    alt="cart-icon"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <div class="bottom">
+              <div class="left">
+                <span class="price-old">€ 6,00</span>
+                <span class="price-new">€ 3,00</span>
+              </div>
+              <div class="right">
+                <label for="bestseller-favorite-{{product.id}}" class="custom-checkbox-cart">
+                  <input type="checkbox" id="bestseller-favorite-{{product.id}}">
+                  <i class="cart-e glyphicon glyphicon-heart-empty"></i>
+                  <i class="cart-f glyphicon glyphicon-heart"></i>
+                </label>
+                <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                  class="update-cart cart-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                    alt="cart-icon"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <div class="bottom">
+              <div class="left">
+                <span class="price-old">€ 6,00</span>
+                <span class="price-new">€ 3,00</span>
+              </div>
+              <div class="right">
+                <label for="bestseller-favorite-{{product.id}}" class="custom-checkbox-cart">
+                  <input type="checkbox" id="bestseller-favorite-{{product.id}}">
+                  <i class="cart-e glyphicon glyphicon-heart-empty"></i>
+                  <i class="cart-f glyphicon glyphicon-heart"></i>
+                </label>
+                <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                  class="update-cart cart-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                    alt="cart-icon"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-explore-item">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="explore-item">
+          <div class="info">
+            <span class="name">Product name lorem impsum lorem ipsum...</span>
+            <div class="bottom">
+              <div class="left">
+                <span class="price-old">€ 6,00</span>
+                <span class="price-new">€ 3,00</span>
+              </div>
+              <div class="right">
+                <label for="bestseller-favorite-{{product.id}}" class="custom-checkbox-cart">
+                  <input type="checkbox" id="bestseller-favorite-{{product.id}}">
+                  <i class="cart-e glyphicon glyphicon-heart-empty"></i>
+                  <i class="cart-f glyphicon glyphicon-heart"></i>
+                </label>
+                <button id="add-cart" data-product="{{ product.id }}" data-action="add"
+                  class="update-cart cart-cart"><img src="{% static 'images/assets/highlight-cart.png' %}"
+                    alt="cart-icon"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}
