@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- tornar o link para 'explore' funcional -->
+
+{% block content %}
+
+<main id="cart">
+  <div class="cart-page-container full">
+    <div class="left-full">
+      <span>Your shopping cart</span>
+      <div class="cart-container">
+        <div class="headers">
+          <span class="item">Item</span>
+          <span class="price">Price</span>
+          <span class="quantity">Quantity</span>
+          <span class="total">Total</span>
+        </div>
+
+        <div class="items">
+          <img src="{% static 'images/assets/cart/item-placeholder.png' %}" alt="product-image">
+          <span class="name">Product name lorem ipsum lorem ipsum...</span>
+          <div class="prices">
+            <span class="new">€ 100,00</span>
+            <span class="old">€ 120,00</span>
+          </div>
+          <div class="quantity">
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button>
+            <span id="order-items-count">10</span>
+            <button data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+            </button>
+          </div>
+          <div class="total">
+            <span>€ 1000,00</span>
+            <!-- <button><img src="{% static 'images/assets/cart/x-button.png' %}" alt="close-button"></button> -->
+            <button><span>X</span></button>
+          </div>
+        </div>
+        <!--  -->
+
+        <div class="items">
+          <img src="{% static 'images/assets/cart/item-placeholder.png' %}" alt="product-image">
+          <span class="name">Product name lorem ipsum lorem ipsum...</span>
+          <div class="prices">
+            <span class="new">€ 100,00</span>
+            <span class="old">€ 120,00</span>
+          </div>
+          <div class="quantity">
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button>
+            <span id="order-items-count">10</span>
+            <button data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+            </button>
+          </div>
+          <div class="total">
+            <span>€ 1000,00</span>
+            <!-- <button><img src="{% static 'images/assets/cart/x-button.png' %}" alt="close-button"></button> -->
+            <button><span>X</span></button>
+          </div>
+        </div>
+        <!--  -->
+
+        <div class="items">
+          <img src="{% static 'images/assets/cart/item-placeholder.png' %}" alt="product-image">
+          <span class="name">Product name lorem ipsum lorem ipsum...</span>
+          <div class="prices">
+            <span class="new">€ 100,00</span>
+            <span class="old">€ 120,00</span>
+          </div>
+          <div class="quantity">
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button>
+            <span id="order-items-count">10</span>
+            <button data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+            </button>
+          </div>
+          <div class="total">
+            <span>€ 1000,00</span>
+            <!-- <button><img src="{% static 'images/assets/cart/x-button.png' %}" alt="close-button"></button> -->
+            <button><span>X</span></button>
+          </div>
+        </div>
+        <!--  -->
+
+        <div class="items">
+          <img src="{% static 'images/assets/cart/item-placeholder.png' %}" alt="product-image">
+          <span class="name">Product name lorem ipsum lorem ipsum...</span>
+          <div class="prices">
+            <span class="new">€ 100,00</span>
+            <span class="old">€ 120,00</span>
+          </div>
+          <div class="quantity">
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button>
+            <span id="order-items-count">10</span>
+            <button data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+            </button>
+          </div>
+          <div class="total">
+            <span>€ 1000,00</span>
+            <!-- <button><img src="{% static 'images/assets/cart/x-button.png' %}" alt="close-button"></button> -->
+            <button><span>X</span></button>
+          </div>
+        </div>
+        <!--  -->
+
+        <div class="items">
+          <img src="{% static 'images/assets/cart/item-placeholder.png' %}" alt="product-image">
+          <span class="name">Product name lorem ipsum lorem ipsum...</span>
+          <div class="prices">
+            <span class="new">€ 100,00</span>
+            <span class="old">€ 120,00</span>
+          </div>
+          <div class="quantity">
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button>
+            <span id="order-items-count">10</span>
+            <button data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+            </button>
+          </div>
+          <div class="total">
+            <span>€ 1000,00</span>
+            <!-- <button><img src="{% static 'images/assets/cart/x-button.png' %}" alt="close-button"></button> -->
+            <button><span>X</span></button>
+          </div>
+        </div>
+        <!--  -->
+
+        <div class="items">
+          <img src="{% static 'images/assets/cart/item-placeholder.png' %}" alt="product-image">
+          <span class="name">Product name lorem ipsum lorem ipsum...</span>
+          <div class="prices">
+            <span class="new">€ 100,00</span>
+            <span class="old">€ 120,00</span>
+          </div>
+          <div class="quantity">
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button>
+            <span id="order-items-count">10</span>
+            <button data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+            </button>
+          </div>
+          <div class="total">
+            <span>€ 1000,00</span>
+            <!-- <button><img src="{% static 'images/assets/cart/x-button.png' %}" alt="close-button"></button> -->
+            <button><span>X</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="right-full">
+      <div class="info-container">
+
+        <div class="top">
+          <div class="total">
+            <span>Subtotal:</span>
+            <span>€ 1900,00</span>
+          </div>
+          <div class="shipping">
+            <span>Shipping cost:</span>
+            <span>€ 20,00</span>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="bottom">
+          <div class="total">
+            <span>Grand total:</span>
+            <span class="value">€ 1920,00</span>
+          </div>
+          <a class="checkout" href="#">Go to checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}

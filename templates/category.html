@@ -41,7 +41,8 @@
 
         {% for product in products %}
         <div class="categories-row-item">
-          <img class="categories-item-image" src="{{ product.image.url }}" alt="product-image">
+          <a href="{% url 'product' pk=product.id %}"><img class="categories-item-image" src="{{ product.image.url }}"
+              alt="product-image"></a>
           <div class="categories-item-info">
             <div class="categories-item-info-top">
               <div class="categories-item-info-top-left">
