@@ -29,6 +29,10 @@ def teste7(request):
     return render(request, 'test-cart-empty-login.html')
 def teste8(request):
     return render(request, 'test-cart-full.html')
+def teste9(request):
+    return render(request, 'test-account-lost-email.html')
+def teste10(request):
+    return render(request, 'test-account-lost-password.html')
 # teste template CSS
 # teste template CSS
 # teste template CSS

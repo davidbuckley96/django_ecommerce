@@ -37,7 +37,8 @@ header::after {
   text-decoration: underline;
 }
 
-.login-container .login-form {
+.login-container .login-form,
+.authentication-container .authentication-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -45,18 +46,25 @@ header::after {
   width: 378px;
 }
 
-.login-form label {
+.authentication-container {
+  margin-top: 48px;
+}
+
+.login-form label,
+.authentication-form label {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 4px;
 }
 
-.login-form label.password-title {
+.login-form label.password-title,
+.authentication-form label.authentication-title {
   margin-top: 24px;
 }
 
-.login-form input {
+.login-form input,
+.authentication-form input {
   border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   height: 39px;
@@ -67,7 +75,10 @@ header::after {
 
 .login-form input:active {
   border: none;
+}
 
+.authentication-form input:active {
+  border: none;
 }
 
 .login-container .login-form a {
@@ -84,18 +95,24 @@ header::after {
   text-decoration: underline;
 }
 
-.login-form .login-button {
+.login-form .login-button,
+.authentication-form .authentication-button {
   font-size: 14px;
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
   background-color: var(--color4);
   color: white;
-  width: 87px;
-  height: 35px;
+  
   align-self: center;
   margin-top: 24px;
   border-radius: 8px;
   border: none;
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.authentication-form .authentication-button {
+  margin-bottom: 188px;
 }
 
 .accounts-subtitle-container {

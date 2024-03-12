@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main id="authentication">
+  <span class="title">Recover your password</span>
+  <span class="subtitle">Enter the email address associated with your account</span>
+
+  <div class="authentication-container">
+
+    <form class="authentication-form" action="" method="POST">
+      <label for="authentication-title">Email</label>
+      <input id="authentication-email" type="email" placeholder="Enter your email">
+
+      <button onclick="setTimeout()" class="authentication-button" type="submit">Continue</button>
+    </form>
+
+  </div>
+
+</main>
+
+<script>
+  setTimeout(function () { window.location = "{% url 'home' %}"; }, 3000);
+</script>
+
+{% endblock content %}

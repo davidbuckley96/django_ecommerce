@@ -21,6 +21,8 @@ urlpatterns = [
     path('teste-cart-empty/', views.teste6, name='teste-cart-empty'),
     path('teste-cart-empty-login/', views.teste7, name='teste-cart-empty-login'),
     path('teste-cart-full/', views.teste8, name='teste-cart-full'),
+    path('teste-account-lost-1/', views.teste9, name= 'teste-account-lost-1'),
+    path('teste-account-lost-2/', views.teste10, name='teste-account-lost-2'),
     # teste CSS
 
     path('update-item/', views.update_item, name='update-item'),
