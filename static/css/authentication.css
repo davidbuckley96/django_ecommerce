@@ -81,6 +81,10 @@ header::after {
   border: none;
 }
 
+.authentication-form .password-label-2 {
+  margin-top: 24px;
+}
+
 .login-container .login-form a {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
@@ -102,7 +106,7 @@ header::after {
   font-family: 'Open Sans', sans-serif;
   background-color: var(--color4);
   color: white;
-  
+
   align-self: center;
   margin-top: 24px;
   border-radius: 8px;
@@ -244,4 +248,25 @@ header::after {
 
 .email-title {
   margin-top: 24px;
+}
+
+/* RESET PASSWORD */
+/* RESET PASSWORD */
+/* RESET PASSWORD */
+.authentication-form .icons-1,
+.icons-2 {
+  position: absolute;
+}
+
+.authentication-form i {
+  position: relative;
+  font-size: 16px;
+  left: 342px;
+  top: 40.2px;
+  color: #a5a5a5;
+  cursor: pointer;
+}
+
+.authentication-form .icons-2>.icon-2 {
+  top: 132px;
 }
