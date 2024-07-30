@@ -37,6 +37,10 @@ def teste10(request):
 # teste template CSS
 # teste template CSS
 
+def categories(request):
+    categories2 = Category.objects.all()
+    
+    return render(request, 'base.html', {'categories2': categories2})
 
 def home(request):
     # recent_products_1 = Product.objects.all().order_by('-date_modified')[:4]

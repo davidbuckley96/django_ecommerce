@@ -53,14 +53,13 @@
     <!-- navbar starts -->
     <nav id="navigation">
       <div class="nav-top">
-        <a href="{% url 'home' %}#"><img class="logo" src="{% static 'images/assets/logo.png' %}" alt="logo"></a>
+        <a class="logo-container" href="{% url 'home' %}#"><img class="logo" src="{% static 'images/assets/logo.png' %}"
+            alt="logo"><span>LuxNexus</span></a>
         <form method="GET" action="{% url 'home' %}" id="search-container">
           <input type="text" name="q" id="search-bar" placeholder="pet toys">
           <button id="search-button" type="submit"><img src="{% static 'images/assets/search1.png' %}"
               alt="search"></button>
         </form>
-        <a href="#" id="nav-currency">EUR&nbsp;<img src="{% static 'images/assets/chevron-down.png' %}"
-            alt="chevron-down"></a>
 
 
         {% if user.is_authenticated %}
@@ -68,8 +67,10 @@
         <!-- ADICIONAR ACCOUNT PAGE -->
         <!-- ADICIONAR ACCOUNT PAGE -->
         <!-- ADICIONAR ACCOUNT PAGE -->
-        <a href="{% url 'logout' %}" id="nav-your-account"><img src="{% static 'images/assets/user-icon.png' %}"
-            alt="user-icon">Log out</a>
+        <div class="empty-cart-buttons navbar-buttons-container">
+          <a href="{% url 'login' %}" class="sign-in hovering-button navbar-signin"><span>Sign in</span></a>
+          <a href="{% url 'register' %}" class="navbar-register">Register</a>
+        </div>
         <!-- ADICIONAR ACCOUNT PAGE -->
         <!-- ADICIONAR ACCOUNT PAGE -->
         <!-- ADICIONAR ACCOUNT PAGE -->
@@ -94,20 +95,23 @@
 
 
           <div class="dropdown">
-            <button class="categories-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1"
+            <button class="categories-dropdown all-categories-button" type="button" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false">
-              All categories
+              All categories <img src="{% static 'images/assets/chevron-down-navbar-categories.png' %}"
+                alt="chevron-down">
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               {% for category in categories %}
-              <li><a class="dropdown-item" href="{% url 'category' pk=category.name %}">{{ category.name }}</a></li>
+              <li><a class="dropdown-item category-item"
+                  href="{% url 'category' pk=category.name %}">{{category.name}}</a>
+              </li>
               {% endfor %}
             </ul>
           </div>
 
-          <a href="{% url 'home' %}#highlights-title">Highlights</a>
-          <a href="{% url 'home' %}#categories">Categories</a>
-          <a href="{% url 'home' %}#explore-title">Explore</a>
+          <a class="bottom navbar-highlights" href="{% url 'home' %}#highlights-title">Highlights</a>
+          <a class="bottom navbar-bestsellers" href="{% url 'home' %}#bestsellers">Best Sellers</a>
+          <a class="bottom navbar-explore" href="{% url 'home' %}#explore-title">Explore</a>
 
         </div>
       </div>
@@ -168,6 +172,7 @@
 
 
   <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>

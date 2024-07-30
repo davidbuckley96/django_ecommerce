@@ -1,4 +1,4 @@
-from .models import Order
+from .models import Order, Category
 
 
 def order(request):
@@ -7,3 +7,8 @@ def order(request):
         return {'order': order}
     except:
         return {'order': None}
+
+
+def categories(request):
+    categories = Category.objects.all()
+    return {'categories': categories}

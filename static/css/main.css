@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,700;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
 
 * {
   margin: 0;
@@ -40,16 +41,37 @@
   z-index: 999999999;
 }
 
+.logo-container {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-container span {
+  font-family: "Overlock SC", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+}
+
+.logo-container:hover,
+.logo-container:active,
+.logo-container:visited,
+.logo-container:focus {
+  text-decoration: none;
+}
+
 .logo {
   width: 60px;
 }
 
 #search-bar {
   height: 50px;
-  width: 532px;
+  width: 602px;
   font-size: 16px;
 
-  margin: 24px 22px;
+  margin: 17px 22px;
   padding: 0 24px 0 24px;
 
   border-radius: 35px;
@@ -61,6 +83,24 @@
   right: 87px;
   bottom: 2px;
   border: none;
+}
+
+.navbar-buttons-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.navbar-register {
+  margin-left: 12px;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-register:hover {
+  text-decoration: none;
+  color: white;
 }
 
 #nav-currency,
@@ -96,23 +136,26 @@
 }
 
 #cart-icon span {
-  margin-bottom: -53px;
-  position: absolute;
+  position: relative;
+  padding-left: 16px;
+  margin-right: 16px;
+  text-indent: -16px;
   color: white;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 #navbar-separator {
   display: block;
   position: relative;
-  top: 98px;
+  top: 85px;
   z-index: 999;
   border-top: 1px solid var(--color3);
 }
 
 .nav-bottom {
   position: relative;
-  top: 98px;
+  top: 85px;
   z-index: 999;
 }
 
@@ -120,6 +163,21 @@
   background-color: var(--color1);
   color: var(--color3);
   border: none;
+  font-size: 16px;
+}
+
+.all-categories-button {
+  border: 1px solid rgba(61, 61, 61, 0.6);
+  border-radius: 4px;
+  padding: 6px 14px;
+}
+
+.all-categories-button>img {
+  margin-left: 54px;
+}
+
+.dropdown-menu>.category-item:hover {
+  background-color: var(--color3);
 }
 
 .nav-links {
@@ -130,21 +188,24 @@
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
-  gap: 57px;
 }
 
-.nav-links a {
+.nav-links a.bottom {
   color: var(--color3);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-decoration: none;
-
-  padding: 20.5px 0;
+  width: 141.75px;
+  padding: 18.5px 0;
 }
 
 .nav-links a:hover {
   text-decoration: none;
   color: white;
   transition: 0.25s;
+}
+
+.navbar-highlights {
+  margin-left: 23px;
 }
 
 /* NAVBAR ENDS */
@@ -783,7 +844,7 @@ highlight-f {
 }
 
 
-
+/* 
 .custom-checkbox-3 {
   cursor: pointer;
   position: relative;
@@ -793,8 +854,6 @@ highlight-f {
 .custom-checkbox-3 .favourite-3-e {
   color: var(--color1);
   position: absolute;
-  /* top: 20px; */
-  /* margin-bottom: 30px; */
 }
 
 .custom-checkbox-3 .favourite-3-e,
@@ -803,8 +862,6 @@ highlight-f {
   font-weight: 100;
   color: var(--color1);
   left: 0.3px;
-
-  /* margin-bottom: -30px; */
 }
 
 .custom-checkbox-3 .favourite-3-f {
@@ -826,7 +883,7 @@ highlight-f {
 
 .custom-checkbox-3 input[type="checkbox"]:checked~.favourite-3-e {
   opacity: 0;
-}
+} */
 
 label.bestseller {
   position: relative;
@@ -952,7 +1009,7 @@ label.bestseller {
 /* EXPLORE STARTS */
 #explore-title {
   display: inline-block;
-  margin: 82px 0 48px 64px;
+  margin: 82px 0 0 64px;
 
   color: black;
   font-family: 'Josefin Sans', sans-serif;
@@ -998,6 +1055,7 @@ button.explore-cart {
   justify-content: space-between;
   align-items: center;
 
+  margin-top: 48px;
   width: 100%;
   height: 313px;
 }
@@ -1161,7 +1219,7 @@ button.explore-cart {
   bottom: 1.8px;
 }
 
-.explore-item:nth-child(12)~.explore-item {
+.explore-item:nth-child(8)~.explore-item {
   display: none;
 }
 
