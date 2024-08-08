@@ -23,6 +23,7 @@ urlpatterns = [
     path('teste-cart-full/', views.teste8, name='teste-cart-full'),
     path('teste-account-lost-1/', views.teste9, name= 'teste-account-lost-1'),
     path('teste-account-lost-2/', views.teste10, name='teste-account-lost-2'),
+    path('teste-checkout/', views.teste11, name='teste-checkout'),
     # teste CSS
 
     path('update-item/', views.update_item, name='update-item'),

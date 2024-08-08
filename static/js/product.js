@@ -6,7 +6,6 @@ const productSmallImage4 = document.getElementById('productSmallImage4');
 
 
 productSmallImage1.addEventListener('click', () => {
-  console.log('clicado')
   productBigImage.src = `${productSmallImage1.src}`
 });
 

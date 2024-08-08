@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="checkout">
+  <div class="checkout-page-container">
+    <div class="checkout-left">
+
+      <div class="shipping-info">
+        <span class="title">Shipping info</span>
+        <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
+            alt="chevron-down"></button>
+
+        <form action="">
+          <label for="shipping-name">Name</label>
+          <input type="text" name="shipping-name" id="shipping-name">
+
+          <label for="shipping-social-security">Social security number</label>
+          <input type="number" name="shipping-social-security" id="shipping-social-security">
+
+          <label for="shipping-address">Address</label>
+          <input type="text" name="shipping-address" id="shipping-address">
+
+          <label for="shipping-cellphone">Cellphone number</label>
+          <input type="tel" name="shipping-cellphone" id="shipping-cellphone">
+
+          <label for="shipping-extra-info">Extra info</label>
+          <input type="text" name="shipping-extra-info" id="shipping-extra-info">
+
+          <button id="shipping-save" type="button">Save address</button>
+        </form>
+      </div>
+
+      <div class="billing-info">
+        <span class="title">Billing info</span>
+        <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
+            alt=""></button>
+        <form action="">
+          <label for="billing-name">Name</label>
+          <input type="text" name="billing-name" id="billing-name">
+
+          <label for="billing-social-security">Social security number</label>
+          <input type="number" name="billing-social-security" id="billing-social-security">
+
+          <label for="billing-address">Address</label>
+          <input type="text" name="billing-address" id="billing-address">
+
+          <label for="billing-cellphone">Cellphone number</label>
+          <input type="tel" name="billing-cellphone" id="billing-cellphone">
+
+          <label for="billing-extra-info">Extra info</label>
+          <input type="text" name="billing-extra-info" id="billing-extra-info">
+
+          <button id="billing-confirm">Continue</button>
+        </form>
+      </div>
+
+      <div class="discount-area">
+        <span class="title">Discount area</span>
+        <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
+            alt=""></button>
+        <form action="">
+          <label for="discount-area-code">Discount code</label>
+          <input type="text" name="discount-area-code" id="discount-area-code">
+
+          <button id="discount-area-submit">Apply</button>
+        </form>
+      </div>
+
+      <div class="payment-method">
+        <span class="title">Payment method</span>
+        <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
+            alt=""></button>
+
+        <div class="payment-options">
+          <button id="payment-credit-card" type="button">Credit card</button>
+          <button id="payment-paypal" type="button">PayPal</button>
+        </div>
+
+        <form action="">
+          <label for="payment-cardholder-name">Cardholder name</label>
+          <input type="text" name="payment-cardholder-name" id="payment-cardholder-name">
+
+          <label for="payment-card-number">Card number</label>
+          <input type="number" name="payment-card-number" id="payment-card-number">
+
+          <div>
+            <label for="payment-expiry-date">Expiry date</label>
+            <input type="text" name="payment-expiry-date" id="payment-expiry-date">
+
+            <label for="payment-cvv">CVV</label>
+            <input type="number" name="payment-cvv" id="payment-cvv">
+          </div>
+
+          <div>
+            <label for="payment-save-card">I want to save my credit card for future payments</label>
+            <input type="checkbox" name="payment-save-card" id="payment-save-card">
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+
+    <div class="checkout-right">
+      <div class="order-details">
+        <span class="order-details-title">Order details</span>
+
+        <div class="checkout-product">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="">
+          <div class="checkout-product-info">
+            <span class="checkout-product-name">Product name lorem ipsum lorem adnair prod utus drag</span>
+            <div class="checkout-product-total">
+              <span class="checkout-product-quantity">Quantity: 2</span>
+              <span class="checkout-product-price">€ 12,00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-product">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="">
+          <div class="checkout-product-info">
+            <span class="checkout-product-name">Product name lorem ipsum lorem adnair prod utus drag</span>
+            <div class="checkout-product-total">
+              <span class="checkout-product-quantity">Quantity: 2</span>
+              <span class="checkout-product-price">€ 12,00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-product">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="">
+          <div class="checkout-product-info">
+            <span class="checkout-product-name">Product name lorem ipsum lorem adnair prod utus drag</span>
+            <div class="checkout-product-total">
+              <span class="checkout-product-quantity">Quantity: 2</span>
+              <span class="checkout-product-price">€ 12,00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-product">
+          <img src="{% static 'images/assets/cart/explore.png' %}" alt="">
+          <div class="checkout-product-info">
+            <span class="checkout-product-name">Product name lorem ipsum lorem adnair prod utus drag</span>
+            <div class="checkout-product-total">
+              <span class="checkout-product-quantity">Quantity: 2</span>
+              <span class="checkout-product-price">€ 12,00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="order-summary">
+        <div class="subtotals">
+          <div class="subtotals-row">
+            <span>Subtotal:</span>
+            <span>€ 1910,00</span>
+          </div>
+
+          <div class="subtotals-row">
+            <span>Fee taxes:</span>
+            <span>€ 30,00</span>
+          </div>
+
+          <div class="subtotals-row">
+            <span>Shipping cost:</span>
+            <span>€ 5,99</span>
+          </div>
+
+          <div class="subtotals-row">
+            <span>Discount:</span>
+            <span>€ -20,00</span>
+          </div>
+        </div>
+
+        <div class="checkout-total">
+          <div>
+            <span>Grand total:</span>
+            <span>(Fees included)</span>
+          </div>
+          <span>€ 1910,00</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

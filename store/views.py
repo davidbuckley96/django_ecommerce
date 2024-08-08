@@ -33,6 +33,8 @@ def teste9(request):
     return render(request, 'test-account-lost-email.html')
 def teste10(request):
     return render(request, 'test-account-lost-password.html')
+def teste11(request):
+    return render(request, 'test-checkout.html')
 # teste template CSS
 # teste template CSS
 # teste template CSS

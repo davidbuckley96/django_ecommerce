@@ -1,0 +1,129 @@
+.checkout-page-container {
+  width: 1184px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  row-gap: 24px;
+  /* background-color: aqua; */
+  margin: 82px auto;
+}
+
+.checkout-left {
+  width: 781px;
+  display: flex;
+  flex-direction: column;
+  column-gap: 48px;
+  background-color: wheat;
+}
+
+.checkout-left>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 12px 24px;
+}
+
+.checkout-right {
+  /* background-color: blueviolet; */
+  padding: 0 10px;
+  width: 379px;
+  box-shadow: 0px 0px 8px 0px #0000001A;
+
+}
+
+.checkout-right>.order-details,
+.checkout-right>.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-details-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 24px 0 4px 0;
+}
+
+.checkout-product {
+  background-color: white;
+  border-bottom: 1px solid #00000066;
+  width: 359px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding: 8px 0;
+}
+
+.checkout-product>img {
+  width: 68px;
+  height: 63.28px;
+  border-radius: 8px;
+}
+
+.checkout-product-info {
+  /* background-color: lightskyblue; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.checkout-product-name {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.checkout-product-total {
+  display: flex;
+  margin-top: 1px;
+  justify-content: space-between;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.checkout-product-quantity {
+  font-size: 12px;
+  color: var(--color5);
+}
+
+.checkout-product-price {
+  font-size: 14px;
+  color: var(--color4);
+  font-weight: 700;
+}
+
+.order-summary {
+  margin: -1px -10px 0 -10px;
+  padding: 12px 10px;
+  border-top: 1px solid #00000066;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: lightsalmon; */
+}
+
+.subtotals, .checkout-total {
+  width: 100%;
+}
+
+.subtotals-row {
+  background-color: lightgreen;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightskyblue;
+}
+
+.checkout-total>div {
+  display: flex;
+  flex-direction: column;
+}
