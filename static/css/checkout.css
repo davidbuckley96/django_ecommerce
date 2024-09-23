@@ -4,7 +4,6 @@
   flex-direction: row;
   justify-content: space-between;
   row-gap: 24px;
-  /* background-color: aqua; */
   margin: 82px auto;
 }
 
@@ -14,21 +13,50 @@
   flex-direction: column;
   column-gap: 48px;
   background-color: wheat;
+  row-gap: 50px;
 }
 
 .checkout-left>div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin: 12px 24px;
+  background-color: aquamarine;
 }
+
+.shipping-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.shipping-info-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: lightgreen;
+  width: 100%;
+}
+
+
+.shipping-info > form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* RIGHT SECTION STARTS */
+/* RIGHT SECTION STARTS */
+/* RIGHT SECTION STARTS */
 
 .checkout-right {
   /* background-color: blueviolet; */
   padding: 0 10px;
+  height: fit-content;
   width: 379px;
   box-shadow: 0px 0px 8px 0px #0000001A;
-
+  border-radius: 8px;
 }
 
 .checkout-right>.order-details,
@@ -108,22 +136,54 @@
 
 .subtotals, .checkout-total {
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  padding: 0 22.5px;
+
+}
+
+.subtotals {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .subtotals-row {
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   display: flex;
   justify-content: space-between;
 }
 
+.subtotals-row-price {
+  font-weight: 700;
+
+}
+
 .checkout-total {
+  margin-top: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
 }
 
 .checkout-total>div {
   display: flex;
   flex-direction: column;
+}
+
+.checkout-grand-total {
+  font-size: 16px;
+  font-weight: 700; 
+}
+
+.checkout-fees {
+  font-size: 10px;
+}
+
+
+.checkout-grand-total-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color4);
 }

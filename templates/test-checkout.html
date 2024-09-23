@@ -8,9 +8,11 @@
     <div class="checkout-left">
 
       <div class="shipping-info">
-        <span class="title">Shipping info</span>
-        <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
-            alt="chevron-down"></button>
+        <div class="shipping-info-top">
+          <span class="title">Shipping info</span>
+          <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
+              alt="chevron-down"></button>
+        </div>
 
         <form action="">
           <label for="shipping-name">Name</label>
@@ -64,7 +66,7 @@
           <label for="discount-area-code">Discount code</label>
           <input type="text" name="discount-area-code" id="discount-area-code">
 
-          <button id="discount-area-submit">Apply</button>
+          <button type="button" id="discount-area-submit">Apply</button>
         </form>
       </div>
 
@@ -156,31 +158,31 @@
         <div class="subtotals">
           <div class="subtotals-row">
             <span>Subtotal:</span>
-            <span>€ 1910,00</span>
+            <span class="subtotals-row-price">€ 1910,00</span>
           </div>
 
           <div class="subtotals-row">
             <span>Fee taxes:</span>
-            <span>€ 30,00</span>
+            <span class="subtotals-row-price">€ 30,00</span>
           </div>
 
           <div class="subtotals-row">
             <span>Shipping cost:</span>
-            <span>€ 5,99</span>
+            <span class="subtotals-row-price">€ 5,99</span>
           </div>
 
           <div class="subtotals-row">
             <span>Discount:</span>
-            <span>€ -20,00</span>
+            <span class="subtotals-row-price">€ -20,00</span>
           </div>
         </div>
 
         <div class="checkout-total">
           <div>
-            <span>Grand total:</span>
-            <span>(Fees included)</span>
+            <span class="checkout-grand-total">Grand total:</span>
+            <span class="checkout-fees">(Fees included)</span>
           </div>
-          <span>€ 1910,00</span>
+          <span class="checkout-grand-total-price">€ 1910,00</span>
         </div>
 
       </div>

@@ -3,9 +3,10 @@
 }
 
 .cart-page-container {
-  margin: 82px 90px;
+  padding: 82px 90px;
   display: flex;
   justify-content: center;
+  column-gap: 50px;
 }
 
 .cart-page-container>.left,
@@ -135,7 +136,7 @@
 
 .cart-page-container>.right {
   margin-top: 12px;
-  margin-left: 125px;
+  margin-left: 12px;
   display: flex;
   flex-direction: column;
 }
