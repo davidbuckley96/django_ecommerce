@@ -2,35 +2,38 @@
 {% load static %}
 
 {% block content %}
-
+<!-- teste1 -->
 <main id="checkout">
   <div class="checkout-page-container">
     <div class="checkout-left">
 
       <div class="shipping-info">
         <div class="shipping-info-top">
-          <span class="title">Shipping info</span>
+          <span class="title">Shipping information</span>
           <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
               alt="chevron-down"></button>
         </div>
 
         <form action="">
           <label for="shipping-name">Name</label>
-          <input type="text" name="shipping-name" id="shipping-name">
+          <input type="text" name="shipping-name" id="shipping-name" placeholder="Anne Phillips Finch">
 
           <label for="shipping-social-security">Social security number</label>
-          <input type="number" name="shipping-social-security" id="shipping-social-security">
+          <input type="number" name="shipping-social-security" id="shipping-social-security" placeholder="6598745631">
 
           <label for="shipping-address">Address</label>
-          <input type="text" name="shipping-address" id="shipping-address">
+          <input type="text" name="shipping-address" id="shipping-address" placeholder="1234 Elm Street Springfield, Illinois, 62704, United States of America">
 
           <label for="shipping-cellphone">Cellphone number</label>
-          <input type="tel" name="shipping-cellphone" id="shipping-cellphone">
+          <input type="tel" name="shipping-cellphone" id="shipping-cellphone" placeholder="(217) 555-1234">
 
           <label for="shipping-extra-info">Extra info</label>
-          <input type="text" name="shipping-extra-info" id="shipping-extra-info">
+          <input type="text" name="shipping-extra-info" id="shipping-extra-info" placeholder="The house is near the downtown area. Look for a red-brick house between Main Street and Oak Street.">
 
-          <button id="shipping-save" type="button">Save address</button>
+          <div class="shipping-buttons">
+            <button id="shipping-save" type="button">Save address</button>
+            <button id="shipping-add" type="button">Add a new address</button>
+          </div>
         </form>
       </div>
 

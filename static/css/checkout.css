@@ -28,7 +28,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
+}
+
+.shipping-info .title {
+  font-size: 34px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
 }
 
 .shipping-info-top {
@@ -39,12 +45,72 @@
   width: 100%;
 }
 
-
-.shipping-info > form {
-  display: flex;
-  flex-direction: column;
+.shipping-info-top button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
+.shipping-info>form {
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.shipping-info>form>input {
+  border: 1px solid #00000099;
+  border-radius: 8px;
+  height: 39px;
+  margin-bottom: 28px;
+}
+
+.shipping-info>form>label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.shipping-info>form>input::placeholder {
+  padding: 10px 0 10px 8px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.shipping-buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 14px;
+}
+
+.shipping-buttons>button {
+  background-color: none;
+  font-size: 14px;
+  /* padding: 8px, 20px, 8px, 20px; */
+  border-radius: 8px;
+  border: none;
+  width: 181px;
+  height: 35px;
+}
+
+#shipping-save {
+  background-color: var(--color4);
+  color: white;
+}
+
+#shipping-add {
+  background-color: white;
+  color: black;
+  border: 1px solid var(--button-color, #3F37C9);
+}
 
 /* RIGHT SECTION STARTS */
 /* RIGHT SECTION STARTS */
@@ -134,7 +200,8 @@
   /* background-color: lightsalmon; */
 }
 
-.subtotals, .checkout-total {
+.subtotals,
+.checkout-total {
   width: 100%;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -174,7 +241,7 @@
 
 .checkout-grand-total {
   font-size: 16px;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 .checkout-fees {
