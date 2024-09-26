@@ -13,31 +13,25 @@
   flex-direction: column;
   column-gap: 48px;
   background-color: wheat;
-  row-gap: 50px;
+  row-gap: 48px;
 }
 
 .checkout-left>div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 12px 24px;
+  margin: 0 24px;
   background-color: aquamarine;
-}
-
-.shipping-info {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-
 }
 
-.shipping-info .title {
+.checkout-left>div>div>span {
   font-size: 34px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
 }
 
-.shipping-info-top {
+.checkout-left>div>div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,34 +39,34 @@
   width: 100%;
 }
 
-.shipping-info-top button {
+.checkout-left>div>div>button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.shipping-info>form {
+.checkout-page-container .checkout-left form {
   margin-top: 24px;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.shipping-info>form>input {
+.checkout-page-container .checkout-left form input {
   border: 1px solid #00000099;
   border-radius: 8px;
   height: 39px;
   margin-bottom: 28px;
 }
 
-.shipping-info>form>label {
+.checkout-page-container .checkout-left form label {
   font-size: 16px;
   font-weight: 700;
 }
 
-.shipping-info>form>input::placeholder {
+.checkout-page-container .checkout-left form input::placeholder {
   padding: 10px 0 10px 8px;
   font-size: 14px;
   font-weight: 400;
@@ -85,13 +79,13 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.shipping-buttons {
+.form-buttons-container {
   display: flex;
   justify-content: center;
   column-gap: 14px;
 }
 
-.shipping-buttons>button {
+.checkout-page-container .checkout-left form button {
   background-color: none;
   font-size: 14px;
   /* padding: 8px, 20px, 8px, 20px; */
@@ -101,12 +95,20 @@ input::-webkit-inner-spin-button {
   height: 35px;
 }
 
-#shipping-save {
+.discount-area form button {
+  margin: auto;
+}
+
+.checkout-button-purple {
   background-color: var(--color4);
   color: white;
 }
 
-#shipping-add {
+#billing-info-button-purple {
+  width: 210px;
+}
+
+.checkout-button-white {
   background-color: white;
   color: black;
   border: 1px solid var(--button-color, #3F37C9);
