@@ -99,6 +99,22 @@ input::-webkit-inner-spin-button {
   margin: auto;
 }
 
+#payment-options {
+  display: flex;
+  justify-content: center;
+  column-gap: 14px;
+}
+
+#payment-options button {
+  color: black;
+  background-color: var(--color6);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 181px;
+  margin: 24px 0;
+}
+
 .checkout-button-purple {
   background-color: var(--color4);
   color: white;
