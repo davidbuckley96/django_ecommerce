@@ -35,6 +35,32 @@
             <button class="checkout-button-purple" type="button">Save address</button>
             <button class="checkout-button-white" type="button">Add a new address</button>
           </div>
+
+          <div class="shipping-options">
+            <span>Shipping options and costs</span>
+            <div>
+              <div>
+                <input type="radio" name="shipping-option" id="shipping-option">
+                <div>
+                  <span>BlueSky Deliveries</span>
+                  <span>Shipped by BlueSky Deliveries</span>
+                  <span>Service with delivery notification</span>
+                  <span>&euro; 5.99</span>
+                </div>
+              </div>
+
+              <div>
+                <input type="radio" name="shipping-option" id="shipping-option">
+                <div>
+                  <span>BlueSky Deliveries</span>
+                  <span>Shipped by BlueSky Deliveries</span>
+                  <span>Service with delivery notification</span>
+                  <span>&euro; 5.99</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </form>
       </div>
 
@@ -64,7 +90,8 @@
             placeholder="The house is near the downtown area. Look for a red-brick house between Main Street and Oak Street.">
 
           <div class="form-buttons-container">
-            <button id="billing-info-button-purple" class="checkout-button-purple" type="button">Use the same informations</button>
+            <button id="billing-info-button-purple" class="checkout-button-purple" type="button">Use the same
+              informations</button>
             <button class="checkout-button-white" type="button">Update informations</button>
           </div>
         </form>
@@ -98,22 +125,26 @@
 
         <form action="">
           <label for="payment-cardholder-name">Cardholder name</label>
-          <input type="text" name="payment-cardholder-name" id="payment-cardholder-name">
+          <input type="text" name="payment-cardholder-name" id="payment-cardholder-name" placeholder="Your name">
 
           <label for="payment-card-number">Card number</label>
-          <input type="number" name="payment-card-number" id="payment-card-number">
+          <input type="number" name="payment-card-number" id="payment-card-number" placeholder="0000 0000 0000 0000">
 
-          <div>
-            <label for="payment-expiry-date">Expiry date</label>
-            <input type="text" name="payment-expiry-date" id="payment-expiry-date">
+          <div class="payment-method-card-info">
+            <div>
+              <label for="payment-expiry-date">Expiry date</label>
+              <input type="text" name="payment-expiry-date" id="payment-expiry-date" placeholder="YY/MM">
+            </div>
 
-            <label for="payment-cvv">CVV</label>
-            <input type="number" name="payment-cvv" id="payment-cvv">
+            <div>
+              <label for="payment-cvv">CVV</label>
+              <input type="number" name="payment-cvv" id="payment-cvv" placeholder="YY/MM">
+            </div>
           </div>
 
-          <div>
-            <label for="payment-save-card">I want to save my credit card for future payments</label>
+          <div class="payment-method-agreement">
             <input type="checkbox" name="payment-save-card" id="payment-save-card">
+            <label for="payment-save-card">I want to save my credit card for future payments</label>
           </div>
         </form>
       </div>

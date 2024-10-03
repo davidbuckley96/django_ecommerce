@@ -12,8 +12,58 @@
   display: flex;
   flex-direction: column;
   column-gap: 48px;
-  background-color: wheat;
+  /* background-color: wheat; */
   row-gap: 48px;
+  /* border-radius: 8px; */
+}
+
+.checkout-left>div {
+  border: 0.4px solid #00000066;
+  border-radius: 8px;
+  padding: 24px 12px;
+}
+
+.payment-method-card-info {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.payment-method-card-info>div {
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+}
+
+.payment-method-card-info input {
+  border: 1px solid #00000099;
+  border-radius: 8px;
+  height: 39px;
+  /* margin-bottom: 28px; */
+}
+
+.payment-method-agreement {
+  display: flex;
+  align-items: center;
+  margin-top: 28px;
+  /* background-color: #3F37C9; */
+  column-gap: 8px;
+  /* margin-bottom: 24px; */
+}
+
+#payment-save-card {
+  /* background-color: black; */
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 4px;
+  vertical-align: middle;
+  border: 1px solid var(--Dark-color, #101010);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: -3px;
 }
 
 .checkout-left>div {
@@ -21,7 +71,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 24px;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   align-items: center;
 }
 
@@ -35,7 +85,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   width: 100%;
 }
 
@@ -54,7 +104,7 @@
   width: 100%;
 }
 
-.checkout-page-container .checkout-left form input {
+.checkout-page-container .checkout-left form>input {
   border: 1px solid #00000099;
   border-radius: 8px;
   height: 39px;
@@ -88,9 +138,9 @@ input::-webkit-inner-spin-button {
 .checkout-page-container .checkout-left form button {
   background-color: none;
   font-size: 14px;
-  /* padding: 8px, 20px, 8px, 20px; */
+  padding: 8px, 20px, 8px, 20px;
   border-radius: 8px;
-  border: none;
+  /* border: none; */
   width: 181px;
   height: 35px;
 }
@@ -118,6 +168,7 @@ input::-webkit-inner-spin-button {
 .checkout-button-purple {
   background-color: var(--color4);
   color: white;
+  border: none;
 }
 
 #billing-info-button-purple {
