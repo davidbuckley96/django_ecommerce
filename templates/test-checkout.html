@@ -9,11 +9,11 @@
       <div class="shipping-info">
         <div class="shipping-info-top">
           <span class="title">Shipping information</span>
-          <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
-              alt="chevron-down"></button>
+          <button type="button" onclick="toggleForm(this)" class="inactive"><img class="chevron"
+              src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-down"></button>
         </div>
 
-        <form action="">
+        <form action="" class="hidden">
           <label for="shipping-name">Name</label>
           <input type="text" name="shipping-name" id="shipping-name" placeholder="Anne Phillips Finch">
 
@@ -32,8 +32,8 @@
             placeholder="The house is near the downtown area. Look for a red-brick house between Main Street and Oak Street.">
 
           <div class="form-buttons-container">
-            <button class="checkout-button-purple" type="button">Save address</button>
-            <button class="checkout-button-white" type="button">Add a new address</button>
+            <button class="shipping-button active" type="button" onclick="buttonSelect(this, 'shipping-info', 'shipping-button')">Save address</button>
+            <button class="shipping-button inactive" type="button" onclick="buttonSelect(this, 'shipping-info', 'shipping-button')">Add a new address</button>
           </div>
 
           <div class="shipping-options">
@@ -67,11 +67,11 @@
       <div class="billing-info">
         <div class="billing-info-top">
           <span class="title">Billing info</span>
-          <button type="button">
+          <button type="button" onclick="toggleForm(this)" class="inactive">
             <img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}" alt="">
           </button>
         </div>
-        <form action="">
+        <form action="" class="hidden">
           <label for="billing-name">Name</label>
           <input type="text" name="billing-name" id="billing-name" placeholder="Anne Phillips Finch">
 
@@ -90,9 +90,9 @@
             placeholder="The house is near the downtown area. Look for a red-brick house between Main Street and Oak Street.">
 
           <div class="form-buttons-container">
-            <button id="billing-info-button-purple" class="checkout-button-purple" type="button">Use the same
+            <button class="billing-button active first" type="button" onclick="buttonSelect(this, 'billing-info', 'billing-button')">Use the same
               informations</button>
-            <button class="checkout-button-white" type="button">Update informations</button>
+            <button class="billing-button inactive" type="button" onclick="buttonSelect(this, 'billing-info', 'billing-button')">Update informations</button>
           </div>
         </form>
       </div>
@@ -100,10 +100,10 @@
       <div class="discount-area">
         <div class="discount-area-top">
           <span class="title">Discount area</span>
-          <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
-              alt=""></button>
+          <button type="button" onclick="toggleForm(this)" class="inactive"><img class="chevron"
+              src="{% static 'images/assets/chevron-down-black.png' %}" alt=""></button>
         </div>
-        <form action="">
+        <form action="" class="hidden">
           <label for="discount-area-code">Discount code</label>
           <input type="text" name="discount-area-code" id="discount-area-code" placeholder="AMZGCHEAPER">
 
@@ -114,16 +114,16 @@
       <div class="payment-method">
         <div class="payment-method-top">
           <span class="title">Payment method</span>
-          <button type="button"><img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}"
-              alt=""></button>
+          <button type="button" onclick="paymentFormToggle(this)" class="inactive"><img class="chevron"
+              src="{% static 'images/assets/chevron-down-black.png' %}" alt=""></button>
         </div>
 
         <div id="payment-options">
-          <button type="button">Credit card</button>
-          <button type="button">PayPal</button>
+          <button type="button" class="payment-option active" onclick="buttonSelect(this, 'payment-method', 'payment-option')">Credit card</button>
+          <button type="button" class="payment-option inactive" onclick="buttonSelect(this, 'payment-method', 'payment-option')">PayPal</button>
         </div>
 
-        <form action="">
+        <form action="" class="hidden">
           <label for="payment-cardholder-name">Cardholder name</label>
           <input type="text" name="payment-cardholder-name" id="payment-cardholder-name" placeholder="Your name">
 

@@ -111,6 +111,20 @@
   margin-bottom: 28px;
 }
 
+.shipping-button.active, .billing-button.active {
+  border: none;
+  background-color: var(--color4);
+  color: white;
+  transition: 0.3s;
+}
+
+.shipping-button.inactive, .billing-button.inactive {
+  border: 1px solid var(--color4);
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
 .shipping-options {
   /* background-color: aqua; */
   border-top: 0.4px solid #00000066;
@@ -206,7 +220,8 @@
   outline: 0;
 }
 
-.shipping-option-company:focus, .shipping-option-company:active {
+.shipping-option-company:focus,
+.shipping-option-company:active {
   outline: 0;
   box-shadow: 0;
   border: none;
@@ -295,13 +310,23 @@ input::-webkit-inner-spin-button {
   margin: 24px 0;
 }
 
+#payment-options button.active {
+  background-color: var(--color4);
+  color: white;
+  transition: 0.3s;
+}
+
+#payment-options button.inactive {
+  transition: 0.3s;
+}
+
 .checkout-button-purple {
   background-color: var(--color4);
   color: white;
   border: none;
 }
 
-#billing-info-button-purple {
+.billing-info .form-buttons-container .first {
   width: 210px;
 }
 
@@ -322,6 +347,9 @@ input::-webkit-inner-spin-button {
   width: 379px;
   box-shadow: 0px 0px 8px 0px #0000001A;
   border-radius: 8px;
+  /* background-color: red; */
+  position: sticky;
+  top: 100px;
 }
 
 .checkout-right>.order-details,
