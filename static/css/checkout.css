@@ -61,7 +61,7 @@
   border: 1px solid var(--Dark-color, #101010);
   appearance: none;
   -webkit-appearance: none;
-  outline: none;
+  outline: 0;
   cursor: pointer;
   margin-top: -3px;
 }
@@ -109,6 +109,136 @@
   border-radius: 8px;
   height: 39px;
   margin-bottom: 28px;
+}
+
+.shipping-options {
+  /* background-color: aqua; */
+  border-top: 0.4px solid #00000066;
+  margin: 24px -12px 0 -12px;
+  padding: 20px 14px 0 14px;
+}
+
+.shipping-options>span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.shipping-options>div {
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* column-gap: 0px; */
+  /* width: 550px; */
+  /* background-color: red; */
+}
+
+.shipping-option-container {
+  /* background-color: antiquewhite; */
+  display: flex;
+  flex-direction: column;
+  width: 43%;
+  margin-left: 27px;
+  /* padding: 0 200px 0 27px; */
+  /* column-gap: 100px; */
+}
+
+.shipping-option-container>div {
+  /* width: 100%; */
+  /* background-color: aquamarine; */
+}
+
+.shipping-option-container p.title {
+  font-weight: 700;
+}
+
+.shipping-option-container p {
+  font-size: 12px;
+  margin-top: -4px;
+  /* display: inline-block; */
+}
+
+.shipping-option-container span {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.shipping-option-company {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 17.33333px;
+  right: 0;
+  bottom: 0;
+  left: -27px;
+  height: 40px;
+  width: 40px;
+  transition: all 0.15s ease-out 0s;
+  background: #DDDDDD;
+  border: 0.2px solid var(--Dark-color, #10101070);
+  color: #fff;
+  width: 14px;
+
+  height: 14px;
+  gap: 0px;
+  border-radius: 50%;
+  border: 0.2px 0px 0px 0px;
+  opacity: 0px;
+
+  cursor: pointer;
+  display: inline-block;
+  /* margin-right: 0.5rem; */
+  outline: 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.shipping-option-company:hover {
+  background: rgba(95, 87, 255, 0.658);
+  outline: 0;
+}
+
+.shipping-option-company:checked {
+  background: #5F56FC;
+  outline: 0;
+}
+
+.shipping-option-company:focus, .shipping-option-company:active {
+  outline: 0;
+  box-shadow: 0;
+  border: none;
+}
+
+.shipping-option-company:checked::before {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  content: '\f00c';
+  font-size: 9px;
+  font-weight: bold;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Font Awesome 5 Free';
+  outline: 0;
+  border: none;
+}
+
+.shipping-option-company:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #5F56FC;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+  border-radius: 50%;
+  outline: 0;
+  border: none;
 }
 
 .checkout-page-container .checkout-left form label {
