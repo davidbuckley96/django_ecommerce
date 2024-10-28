@@ -115,8 +115,9 @@ header::after {
   text-align: center;
 }
 
-.authentication-form .authentication-button {
+.authentication-form .authentication-button, .authentication-form .authentication-button:visited {
   margin-bottom: 188px;
+  text-decoration: none;
 }
 
 .accounts-subtitle-container {

@@ -1,82 +1,102 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
+<style>
+  .inline {
+    max-width: 100%;
+    display: inline;
+  }
 
-  <style>
-      .inline {
-          max-width: 100%;
-          display: inline;
-      }
+  .inline p {
+    display: inline;
+    font-size: 130%;
+  }
 
-      .inline p {
-          display: inline;
-          font-size: 130%;
-      }
+  .hidden {
+    display: none !important;
+  }
+</style>
 
-      .hidden {
-          display: none !important;
-      }
-  </style>
+<div class="">
+  <h1>Order Summary</h1>
+  <h2>Total items: {{ order.get_cart_quantity }}</h2>
+  <h2>Total value: ${{ order.get_cart_total|floatformat:2 }}</h2>
 
-  <div class="">
-    <h1>Order Summary</h1>
-    <h2>Total items: {{ order.get_cart_quantity }}</h2>
-    <h2>Total value: ${{ order.get_cart_total|floatformat:2 }}</h2>
-
-    {% for item in items %}
-      <br>
-      <div class="inline">
-        <p><strong>Item:</strong> {{ item.product.name }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-        {% if item.product.discount %}
-          <p><strong>Price:</strong> ${{ item.product.discount_price|floatformat:2 }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-        {% else %}
-          <p><strong>Price:</strong> ${{ item.product.price }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-        {% endif %}
-        <p><strong>Quantity:</strong> {{ item.quantity }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-        <p><strong>Total:</strong> ${{ item.get_total_value }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-      </div>
-      <br>
-      <hr>
-    {% endfor %}
+  {% for item in items %}
+  <br />
+  <div class="inline">
+    <p>
+      <strong>Item:</strong> {{ item.product.name }}&nbsp;&nbsp; | &nbsp;&nbsp;
+    </p>
+    {% if item.product.discount %}
+    <p>
+      <strong>Price:</strong> ${{ item.product.discount_price|floatformat:2
+      }}&nbsp;&nbsp; | &nbsp;&nbsp;
+    </p>
+    {% else %}
+    <p>
+      <strong>Price:</strong> ${{ item.product.price }}&nbsp;&nbsp; |
+      &nbsp;&nbsp;
+    </p>
+    {% endif %}
+    <p>
+      <strong>Quantity:</strong> {{ item.quantity }}&nbsp;&nbsp; | &nbsp;&nbsp;
+    </p>
+    <p>
+      <strong>Total:</strong> ${{ item.get_total_value }}&nbsp;&nbsp; |
+      &nbsp;&nbsp;
+    </p>
   </div>
-  <br><br>
+  <br />
+  <hr />
+  {% endfor %}
+</div>
+<br /><br />
 
-
-  <h1>Shipping Information</h1>
-  <div>
+<h1>Shipping Information</h1>
+<div>
   <div id="form">
     <form action="" method="POST">
       {% csrf_token %}
       <div id="user-info">
         {% if order.user.name %}
-          <label for="name">Full Name:</label>
-          <input type="text" id="name" value="{{ order.user.name|title }}" placeholder="Your full name">
+        <label for="name">Full Name:</label>
+        <input
+          type="text"
+          id="name"
+          value="{{ order.user.name|title }}"
+          placeholder="Your full name"
+        />
         {% else %}
-          <label for="name">Full Name:</label>
-          <input type="text" id="name" placeholder="Your full name">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Your full name" />
         {% endif %}
-        <br><br>
+        <br /><br />
         <label for="email">Email Address:</label>
-        <input type="email" id="email" value="{{ order.user.email }}" placeholder="Your email">
-        <br><br>
+        <input
+          type="email"
+          id="email"
+          value="{{ order.user.email }}"
+          placeholder="Your email"
+        />
+        <br /><br />
       </div>
       <div id="shipping-info">
         <label for="street">Street Address:</label>
-        <input type="text" id="street" placeholder="Your address">
-        <br><br>
+        <input type="text" id="street" placeholder="Your address" />
+        <br /><br />
         <label for="city">City:</label>
-        <input type="text" id="city" placeholder="Your city">
-        <br><br>
+        <input type="text" id="city" placeholder="Your city" />
+        <br /><br />
         <label for="state">State:</label>
-        <input type="text" id="state" placeholder="Your state">
-        <br><br>
+        <input type="text" id="state" placeholder="Your state" />
+        <br /><br />
         <label for="zip">Zip Code:</label>
-        <input type="text" id="zip" placeholder="Your zip code">
-        <br><br>
+        <input type="text" id="zip" placeholder="Your zip code" />
+        <br /><br />
         <label for="country">Country:</label>
-        <input type="text" id="country" placeholder="Your country">
-        <br><br>
-        <input type="submit" id="form-button" value="Continue">
+        <input type="text" id="country" placeholder="Your country" />
+        <br /><br />
+        <input type="submit" id="form-button" value="Continue" />
       </div>
     </form>
     <div id="payment-form" class="hidden">
@@ -85,36 +105,31 @@
     </div>
   </div>
 
-
-
-
-
-
   <script type="text/javascript">
-      var shipping = '{{ order.shipping }}'
-      if (shipping == 'False') {
-          document.getElementById('shipping-form').innerHTML = ''
-      }
+    var shipping = "{{ order.shipping }}";
+    if (shipping == "False") {
+      document.getElementById("shipping-form").innerHTML = "";
+    }
 
-      var form = document.getElementById('form')
+    var form = document.getElementById("form");
 
-      form.addEventListener('submit', function (e) {
-          e.preventDefault()
-          console.log('Form submitted...')
-          document.getElementById('form-button').classList.add('hidden')
-          document.getElementById('payment-form').classList.remove('hidden')
-      })
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      console.log("Form submitted...");
+      document.getElementById("form-button").classList.add("hidden");
+      document.getElementById("payment-form").classList.remove("hidden");
+    });
 
-      document.getElementById('make-payment').addEventListener('click', function(e){
-          submitFormData()
-      })
+    document
+      .getElementById("make-payment")
+      .addEventListener("click", function (e) {
+        submitFormData();
+      });
 
-      function submitFormData(){
-          console.log('Payment button clicked...')
-      }
-
-
-
+    function submitFormData() {
+      console.log("Payment button clicked...");
+    }
   </script>
 
-{% endblock content %}
+  {% endblock content %}
+</div>

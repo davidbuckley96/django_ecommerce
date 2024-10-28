@@ -98,8 +98,10 @@ def category(request, pk):
 
 def register(request):
     form = RegistrationForm()
+    print(form)
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
+        print(f'(ATUALIZADO): {form}')
         if form.is_valid():
             user = form.save(commit=False)
             user.email = user.email.lower()
@@ -108,6 +110,7 @@ def register(request):
             return redirect('home')
         else:
             messages.success(request, 'Please enter a valid email and make sure both passwords match')
+
 
     context = {'form': form}
     return render(request, 'register.html', context)
@@ -125,7 +128,7 @@ def user_login(request):
             messages.error(request, 'Invalid email or password')
     return render(request, 'login.html')
 
-
+@login_required
 def user_logout(request):
     logout(request)
     return redirect('home')

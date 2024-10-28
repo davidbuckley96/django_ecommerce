@@ -1,56 +1,73 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block content %} {% comment %}
+<h1>Log in</h1>
+<hr />
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" />
 
-{% block content %}
-
-  {% comment %} <h1>Log in</h1>
-  <hr>
-  <div>
-    <form action="" method="POST">
-      {% csrf_token %}
-      <label for="email">Email:</label>
-      <input type="email" name="email" id="email">
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password">
-
-      <button type="submit">Log in</button>
-    </form>
-  </div> {% endcomment %}
-
+    <button type="submit">Log in</button>
+  </form>
+</div>
+{% endcomment %}
 
 <main id="authentication">
   <span class="title">Sign in</span>
-  <span class="subtitle">Don't have an account yet? <a href="{% url 'register' %}">Register here</a></span>
+  <span class="subtitle"
+    >Don't have an account yet?
+    <a href="{% url 'register' %}">Register here</a></span
+  >
   <div class="login-container">
-
     <form class="login-form" action="" method="POST">
       {% csrf_token %}
 
       <label for="login-title">Email</label>
-      <input id="login-email" type="email" name="email" placeholder="Enter your email">
+      <input
+        id="login-email"
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+      />
 
       <label class="password-title" for="login-title">Password</label>
-      <input id="login-password" type="password" name="password" placeholder="Enter your password">
+      <input
+        id="login-password"
+        type="password"
+        name="password"
+        placeholder="Enter your password"
+      />
 
-      <a href="#">Forgot your password?</a>
+      <a href="{% url 'teste-account-lost-1' %}">Forgot your password?</a>
 
       <button class="login-button" type="submit">Sign in</button>
     </form>
     <div class="accounts-subtitle-container">
       <span class="accounts-subtitle">
-        <hr> or sign in with your accounts
-        <hr>
+        <hr />
+        or sign in with your accounts
+        <hr />
       </span>
     </div>
   </div>
 
   <!-- accounts login -->
   <div class="accounts-container">
-    <button class="google-login"><img src="../static/images/assets/login/google.png" alt="google-icon">Continue with
-      Google</button>
+    <button class="google-login">
+      <img
+        src="{% static '../static/images/assets/login/google.png' %}"
+        alt="google-icon"
+      />Continue with Google
+    </button>
 
-    <button class="facebook-login"><img src="../static/images/assets/login/facebook.png" alt="facebook-icon">Continue
-      with
-      Facebook</button>
+    <button class="facebook-login">
+      <img
+        src="{% static '../static/images/assets/login/facebook.png' %}"
+        alt="facebook-icon"
+      />Continue with Facebook
+    </button>
   </div>
 </main>
 {% endblock content %}

@@ -1,26 +1,44 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <main id="authentication">
   <span class="title">Recover your password</span>
-  <span class="subtitle">Enter the email address associated with your account</span>
+  <span class="subtitle"
+    >Enter the email address associated with your account</span
+  >
 
   <div class="authentication-container">
-
     <form class="authentication-form" action="" method="POST">
       <label for="authentication-title">Email</label>
-      <input id="authentication-email" type="email" placeholder="Enter your email">
+      <input
+        id="authentication-email"
+        type="email"
+        placeholder="Enter your email"
+      />
 
-      <button onclick="setTimeout()" class="authentication-button" type="submit">Continue</button>
+      <a href="{% url 'teste-account-lost-2' %}" class="authentication-button">Continue</a>
+
+      {% comment %} <button
+        id="recovery-continue"
+        onclick="setTimeout()"
+        class="inactive authentication-button"
+        type="submit"
+      >
+        Continue
+      </button> {% endcomment %}
     </form>
-
   </div>
-
 </main>
 
 <script>
-  setTimeout(function () { window.location = "{% url 'home' %}"; }, 3000);
+  {% comment %} var button = document.getElementById("recovery-continue");
+
+setTimeout(function () {
+  button.classList.replace('inactive', 'active');
+  if (button.classList.contains('active')) {
+    window.location.href = "{% url 'home' %}";
+  }
+}, 3000); {% endcomment %}
+
 </script>
 
 {% endblock content %}
