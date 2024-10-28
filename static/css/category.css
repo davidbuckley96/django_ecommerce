@@ -255,7 +255,7 @@
   text-decoration: none;
 }
 
-.categories-item-info-bottom a {
+.categories-item-info-bottom button {
   background-color: var(--color4);
   display: inline-block;
   width: 286px;

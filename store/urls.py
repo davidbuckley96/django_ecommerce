@@ -14,7 +14,7 @@ urlpatterns = [
 
     # teste CSS
     path('teste/', views.teste, name='teste'),                                          # OK
-    path('teste-category/', views.teste2, name='teste-category'),
+    path('teste-category/', views.teste2, name='teste-category'),                       # OK
     path('teste-product/', views.teste3, name='teste-product'),
     path('teste-login/', views.teste4, name='teste-login'),                             # OK
     path('teste-register/', views.teste5, name='teste-register'),                       # OK
