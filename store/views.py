@@ -45,11 +45,9 @@ def categories(request):
     return render(request, 'base.html', {'categories2': categories2})
 
 def home(request):
-    # recent_products_1 = Product.objects.all().order_by('-date_modified')[:4]
-    # recent_products_2 = Product.objects.all().order_by('-date_modified')[4:8]
-    # recent_products_3 = Product.objects.all().order_by('-date_modified')[8:12]
+    carousel_products = Product.objects.filter(discount=True).order_by('discount')[:18]
     recent_products = Product.objects.all
-    sales_products = Product.objects.filter(discount=True).order_by('-date_modified')[:18]
+    sales_products = Product.objects.filter(discount_percent__gt=0).order_by('?')
     categories = Category.objects.all()
     digital_products = Product.objects.filter(digital=True)
     random_products = list(Product.objects.all())
@@ -71,7 +69,7 @@ def home(request):
 
     context = {'recent_products': recent_products, 'categories': categories, 'sales_products': sales_products,
             'products_count': products_count, 'products': products, 'page': page,
-            'digital_products': digital_products, 'best_sellers': best_sellers}
+            'digital_products': digital_products, 'best_sellers': best_sellers, 'carousel_products': carousel_products}
     return render(request, 'home.html', context)
 
 

@@ -20,6 +20,24 @@
   --color6: #DDDDDD;
 }
 
+.errors {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.base-message {
+  position: absolute;
+  top: 30px;
+  display: block;
+  color: red;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 0, 0, 0.144);
+}
+
 
 /* NAVBAR STARTS */
 /* NAVBAR STARTS */
