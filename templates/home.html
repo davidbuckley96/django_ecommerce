@@ -162,7 +162,7 @@
           <a href="{% url 'product' pk=product.id %}"
             ><img
               class="slide-img"
-              src="{{ product.image.url }}"
+              src="{% if product.image %}{{ product.image.url }}{% else %}{{default_image_url}}{% endif %}"
               alt='Product "{{product.name}}" image'
           /></a>
           <div class="highlights-bottom">

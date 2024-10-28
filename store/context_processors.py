@@ -1,4 +1,5 @@
 from .models import Order, Category
+from django.conf import settings
 
 
 def order(request):
@@ -12,3 +13,7 @@ def order(request):
 def categories(request):
     categories = Category.objects.all()
     return {'categories': categories}
+
+
+def default_image_url(request):
+    return {'default_image_url': f'{settings.STATIC_URL}placeholder_product.jpg'}
