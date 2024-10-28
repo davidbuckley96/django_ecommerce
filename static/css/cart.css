@@ -161,17 +161,34 @@
   width: 237px;
 }
 
+.explore-container .cart-explore-item .image {
+  width: 101px;
+  height: 106px;
+}
+
+.explore-container .cart-explore-item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .explore-container>.cart-explore-item>.info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 10px;
   width: 126px;
+  height: 72px;
 }
 
 .explore-container>.cart-explore-item>.info>.bottom>.right {
-  position: relative;
-  left: 18px;
+  position: absolute;
+  left: 40px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-checkbox-cart {
@@ -241,11 +258,14 @@ label.bestseller {
 
 .explore-container>.cart-explore-item>.info .bottom {
   display: flex;
+  position: relative;
 }
 
 .explore-container>.cart-explore-item>.info .left {
   display: flex;
   flex-direction: column;
+  position: relative;
+  right: 24px;
 }
 
 .explore-container>.cart-explore-item>.info .name {

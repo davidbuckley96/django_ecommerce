@@ -9,6 +9,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from datetime import datetime, timedelta
 from random import sample
+from decimal import Decimal
 
 # teste template CSS
 # teste template CSS
@@ -77,13 +78,14 @@ def product(request, pk):
     product = Product.objects.get(id=pk)
     delivery_time = (datetime.now() + timedelta(days=4)).date
     description_lines = product.description.split('\n')
-    reviews = product.review_set.all()
-    reviews_length = len(reviews)
+    reviews_left = product.review_set.all()[0::2]
+    reviews_right = product.review_set.all()[1::2]
+    reviews_length = len(reviews_left) + len(reviews_right)
 
     related_products = Product.objects.filter(category=product.category).order_by('-date_modified')[:5]
     customer_bought = Product.objects.all().order_by('-discount_percent')[:5]
   
-    context = {'product': product, 'delivery_time': delivery_time, 'description_lines': description_lines, 'reviews': reviews, 'reviews_length': reviews_length, 'related_products': related_products, 'customer_bought': customer_bought}
+    context = {'product': product, 'delivery_time': delivery_time, 'description_lines': description_lines, 'reviews_left': reviews_left, 'reviews_right': reviews_right, 'reviews_length': reviews_length, 'related_products': related_products, 'customer_bought': customer_bought}
     return render(request, 'product.html', context)
 
 
@@ -138,7 +140,8 @@ def user_logout(request):
 def cart(request):
     order, created = Order.objects.get_or_create(user=request.user, complete=False)
     items = order.orderitem_set.all()
-    context = {'order': order, 'items': items}
+    explore_products = Product.objects.all().order_by('?')[:4]
+    context = {'order': order, 'items': items, 'explore_products': explore_products}
     return render(request, 'cart.html', context)
 
 
@@ -181,6 +184,14 @@ def update_item(request):
 
 def checkout(request):
     order, created = Order.objects.get_or_create(user=request.user, complete=False)
+    shipping_fee = Decimal(15.99)
+    taxes = order.get_cart_total * Decimal(0.07) + shipping_fee
+    shipping_cost = shipping_fee
+
+    if taxes > 50:
+        shipping_cost = Decimal(0)
+    
+    grand_total = order.get_cart_total + taxes
     items = order.orderitem_set.all()
-    context = {'order': order, 'items': items}
+    context = {'order': order, 'items': items, 'taxes': taxes, 'shipping-cost': shipping_cost, 'grand_total': grand_total}
     return render(request, 'checkout.html', context)

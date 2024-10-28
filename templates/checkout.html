@@ -1,109 +1,217 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 
-<style>
-  .inline {
-    max-width: 100%;
-    display: inline;
-  }
 
-  .inline p {
-    display: inline;
-    font-size: 130%;
-  }
-
-  .hidden {
-    display: none !important;
-  }
-</style>
-
-<div class="">
-  <h1>Order Summary</h1>
-  <h2>Total items: {{ order.get_cart_quantity }}</h2>
-  <h2>Total value: ${{ order.get_cart_total|floatformat:2 }}</h2>
-
-  {% for item in items %}
-  <br />
-  <div class="inline">
-    <p>
-      <strong>Item:</strong> {{ item.product.name }}&nbsp;&nbsp; | &nbsp;&nbsp;
-    </p>
-    {% if item.product.discount %}
-    <p>
-      <strong>Price:</strong> ${{ item.product.discount_price|floatformat:2
-      }}&nbsp;&nbsp; | &nbsp;&nbsp;
-    </p>
-    {% else %}
-    <p>
-      <strong>Price:</strong> ${{ item.product.price }}&nbsp;&nbsp; |
-      &nbsp;&nbsp;
-    </p>
-    {% endif %}
-    <p>
-      <strong>Quantity:</strong> {{ item.quantity }}&nbsp;&nbsp; | &nbsp;&nbsp;
-    </p>
-    <p>
-      <strong>Total:</strong> ${{ item.get_total_value }}&nbsp;&nbsp; |
-      &nbsp;&nbsp;
-    </p>
-  </div>
-  <br />
-  <hr />
-  {% endfor %}
-</div>
-<br /><br />
-
-<h1>Shipping Information</h1>
-<div>
-  <div id="form">
-    <form action="" method="POST">
-      {% csrf_token %}
-      <div id="user-info">
-        {% if order.user.name %}
-        <label for="name">Full Name:</label>
-        <input
-          type="text"
-          id="name"
-          value="{{ order.user.name|title }}"
-          placeholder="Your full name"
-        />
-        {% else %}
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" placeholder="Your full name" />
-        {% endif %}
-        <br /><br />
-        <label for="email">Email Address:</label>
-        <input
-          type="email"
-          id="email"
-          value="{{ order.user.email }}"
-          placeholder="Your email"
-        />
-        <br /><br />
+  <main id="checkout">
+    <div class="checkout-page-container">
+      <div class="checkout-left">
+  
+        <div class="shipping-info">
+          <div class="shipping-info-top">
+            <span class="title">Shipping information</span>
+            <button type="button" onclick="toggleForm(this)" class="inactive"><img class="chevron"
+                src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-down"></button>
+          </div>
+  
+          <form action="" class="hidden">
+            <label for="shipping-name">Name</label>
+            <input type="text" name="shipping-name" id="shipping-name" placeholder="Anne Phillips Finch">
+  
+            <label for="shipping-social-security">Social security number</label>
+            <input type="number" name="shipping-social-security" id="shipping-social-security" placeholder="6598745631">
+  
+            <label for="shipping-address">Address</label>
+            <input type="text" name="shipping-address" id="shipping-address"
+              placeholder="1234 Elm Street Springfield, Illinois, 62704, United States of America">
+  
+            <label for="shipping-cellphone">Cellphone number</label>
+            <input type="tel" name="shipping-cellphone" id="shipping-cellphone" placeholder="(217) 555-1234">
+  
+            <label for="shipping-extra-info">Extra info</label>
+            <input type="text" name="shipping-extra-info" id="shipping-extra-info"
+              placeholder="The house is near the downtown area. Look for a red-brick house between Main Street and Oak Street.">
+  
+            <div class="form-buttons-container">
+              <button class="shipping-button active" type="button" onclick="buttonSelect(this, 'shipping-info', 'shipping-button')">Save address</button>
+              <button class="shipping-button inactive" type="button" onclick="buttonSelect(this, 'shipping-info', 'shipping-button')">Add a new address</button>
+            </div>
+  
+            <div class="shipping-options">
+              <span>Shipping options and costs</span>
+              <div>
+                <div class="shipping-option-container">
+                  <input type="radio" name="shipping-option" class="shipping-option-company">
+                  <div>
+                    <p class="title">BlueSky Deliveries</p>
+                    <p>Shipped by BlueSky Deliveries</p>
+                    <p>Service with delivery notification</p>
+                    <span>&euro; 5.99</span>
+                  </div>
+                </div>
+  
+                <div class="shipping-option-container">
+                  <input type="radio" name="shipping-option" class="shipping-option-company">
+                  <div>
+                    <p class="title">BlueSky Deliveries</p>
+                    <p>Shipped by BlueSky Deliveries</p>
+                    <p>Service with delivery notification</p>
+                    <span>&euro; 5.99</span>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </form>
+        </div>
+  
+        <div class="billing-info">
+          <div class="billing-info-top">
+            <span class="title">Billing info</span>
+            <button type="button" onclick="toggleForm(this)" class="inactive">
+              <img class="chevron" src="{% static 'images/assets/chevron-down-black.png' %}" alt="">
+            </button>
+          </div>
+          <form action="" class="hidden">
+            <label for="billing-name">Name</label>
+            <input type="text" name="billing-name" id="billing-name" placeholder="Anne Phillips Finch">
+  
+            <label for="billing-social-security">Social security number</label>
+            <input type="number" name="billing-social-security" id="billing-social-security" placeholder="6598745631">
+  
+            <label for="billing-address">Address</label>
+            <input type="text" name="billing-address" id="billing-address"
+              placeholder="1234 Elm Street Springfield, Illinois, 62704, United States of America">
+  
+            <label for="billing-cellphone">Cellphone number</label>
+            <input type="tel" name="billing-cellphone" id="billing-cellphone" placeholder="(217) 555-1234">
+  
+            <label for="billing-extra-info">Extra info</label>
+            <input type="text" name="billing-extra-info" id="billing-extra-info"
+              placeholder="The house is near the downtown area. Look for a red-brick house between Main Street and Oak Street.">
+  
+            <div class="form-buttons-container">
+              <button class="billing-button active first" type="button" onclick="buttonSelect(this, 'billing-info', 'billing-button')">Use the same
+                informations</button>
+              <button class="billing-button inactive" type="button" onclick="buttonSelect(this, 'billing-info', 'billing-button')">Update informations</button>
+            </div>
+          </form>
+        </div>
+  
+        <div class="discount-area">
+          <div class="discount-area-top">
+            <span class="title">Discount area</span>
+            <button type="button" onclick="toggleForm(this)" class="inactive"><img class="chevron"
+                src="{% static 'images/assets/chevron-down-black.png' %}" alt=""></button>
+          </div>
+          <form action="" class="hidden">
+            <label for="discount-area-code">Discount code</label>
+            <input type="text" name="discount-area-code" id="discount-area-code" placeholder="AMZGCHEAPER">
+  
+            <button type="button" class="checkout-button-purple">Apply</button>
+          </form>
+        </div>
+  
+        <div class="payment-method">
+          <div class="payment-method-top">
+            <span class="title">Payment method</span>
+            <button type="button" onclick="paymentFormToggle(this)" class="inactive"><img class="chevron"
+                src="{% static 'images/assets/chevron-down-black.png' %}" alt=""></button>
+          </div>
+  
+          <div id="payment-options">
+            <button type="button" class="payment-option active" onclick="buttonSelect(this, 'payment-method', 'payment-option')">Credit card</button>
+            <button type="button" class="payment-option inactive" onclick="buttonSelect(this, 'payment-method', 'payment-option')">PayPal</button>
+          </div>
+  
+          <form action="" class="hidden">
+            <label for="payment-cardholder-name">Cardholder name</label>
+            <input type="text" name="payment-cardholder-name" id="payment-cardholder-name" placeholder="Your name">
+  
+            <label for="payment-card-number">Card number</label>
+            <input type="number" name="payment-card-number" id="payment-card-number" placeholder="0000 0000 0000 0000">
+  
+            <div class="payment-method-card-info">
+              <div>
+                <label for="payment-expiry-date">Expiry date</label>
+                <input type="text" name="payment-expiry-date" id="payment-expiry-date" placeholder="YY/MM">
+              </div>
+  
+              <div>
+                <label for="payment-cvv">CVV</label>
+                <input type="number" name="payment-cvv" id="payment-cvv" placeholder="YY/MM">
+              </div>
+            </div>
+  
+            <div class="payment-method-agreement">
+              <input type="checkbox" name="payment-save-card" id="payment-save-card">
+              <label for="payment-save-card">I want to save my credit card for future payments</label>
+            </div>
+          </form>
+        </div>
+  
       </div>
-      <div id="shipping-info">
-        <label for="street">Street Address:</label>
-        <input type="text" id="street" placeholder="Your address" />
-        <br /><br />
-        <label for="city">City:</label>
-        <input type="text" id="city" placeholder="Your city" />
-        <br /><br />
-        <label for="state">State:</label>
-        <input type="text" id="state" placeholder="Your state" />
-        <br /><br />
-        <label for="zip">Zip Code:</label>
-        <input type="text" id="zip" placeholder="Your zip code" />
-        <br /><br />
-        <label for="country">Country:</label>
-        <input type="text" id="country" placeholder="Your country" />
-        <br /><br />
-        <input type="submit" id="form-button" value="Continue" />
+  
+  
+      <div class="checkout-right">
+        <div class="order-details">
+          <span class="order-details-title">Order details</span>
+  
+          {% for item in items %}
+
+          <div class="checkout-product">
+            <img src="{{item.product.image.url}}" alt='Product "{{item.product.name}}" image'>
+            <div class="checkout-product-info">
+              <span class="checkout-product-name">{{item.product.name}}</span>
+              <div class="checkout-product-total">
+                <span class="checkout-product-quantity">Quantity: {{item.quantity}}</span>
+                <span class="checkout-product-price">€ {{item.get_total_value|floatformat:2}}</span>
+              </div>
+            </div>
+          </div>
+  
+          {% endfor %}
+
+  
+        </div>
+        <div class="order-summary">
+          <div class="subtotals">
+            <div class="subtotals-row">
+              <span>Subtotal:</span>
+              <span class="subtotals-row-price">€ {{order.get_cart_subtotal|floatformat:2}}</span>
+            </div>
+  
+            <div class="subtotals-row">
+              <span>Fee taxes:</span>
+              <span class="subtotals-row-price">€ {{taxes|floatformat:2}}</span>
+            </div>
+  
+            <div class="subtotals-row">
+              <span>Shipping cost:</span>
+              {% if shipping_cost %}
+              <span class="subtotals-row-price">€ {{shipping_cost|floatformat:2}}</span>
+              {% else %}
+              <span class="subtotals-row-price">€ 0,00</span>
+              {% endif %}
+            </div>
+  
+            <div class="subtotals-row">
+              <span>Total discount:</span>
+              <span class="subtotals-row-price">€ -{{order.get_total_saved|floatformat:2}}</span>
+            </div>
+          </div>
+  
+          <div class="checkout-total">
+            <div>
+              <span class="checkout-grand-total">Grand total:</span>
+              <span class="checkout-fees">(Fees included)</span>
+            </div>
+            <span class="checkout-grand-total-price">€ {{grand_total|floatformat:2}}</span>
+          </div>
+  
+        </div>
       </div>
-    </form>
-    <div id="payment-form" class="hidden">
-      <small>Paypal Options</small>
-      <button id="make-payment">Make Payment</button>
     </div>
-  </div>
+  </main>
+
 
   <script type="text/javascript">
     var shipping = "{{ order.shipping }}";

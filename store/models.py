@@ -56,6 +56,8 @@ class Product(models.Model):
     date_modified = models.DateTimeField(auto_now=True)
     discount = models.BooleanField(default=False, null=True, blank=True)
     discount_percent = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    rating_score = models.IntegerField(default=100, validators=[MinValueValidator(0), MaxValueValidator(100)], null=True, blank=True)
+    total_ratings = models.IntegerField(default=1, validators=[MinValueValidator(0)], null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
     class Meta:
@@ -68,6 +70,12 @@ class Product(models.Model):
             total = self.price - amount
             return total
 
+    @property
+    def total_saved(self):
+        if self.discount:
+            total = self.price - self.discount_price
+            return total
+
     def __str__(self):
         return self.name
     
@@ -77,6 +85,7 @@ class Review(models.Model):
   date = models.DateTimeField(auto_now=True)
   body = models.TextField()
   recommend = models.BooleanField(default=True)
+  rating = models.IntegerField(default=100, validators=[MinValueValidator(0), MaxValueValidator(100)], null=True, blank=True)
   product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
     
 
@@ -85,6 +94,18 @@ class Order(models.Model):
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=255)
+
+    @property
+    def get_total_saved(self):
+        order_items = self.orderitem_set.all()
+        total = sum([item.get_total_item_saved for item in order_items])
+        return total
+    
+    @property
+    def get_cart_subtotal(self):
+        order_items = self.orderitem_set.all()
+        total = sum([item.get_original_price for item in order_items])
+        return total
 
     @property
     def get_cart_total(self):
@@ -116,6 +137,19 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0)
     date_added = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_total_item_saved(self):
+        if self.product.discount:
+            total_item_saved = self.product.total_saved * self.quantity
+        else:
+            total_item_saved = 0
+        return total_item_saved
+
+    @property
+    def get_original_price(self):
+        total_original_price = self.product.price * self.quantity
+        return total_original_price
 
     @property
     def get_total_value(self):

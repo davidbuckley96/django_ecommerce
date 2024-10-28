@@ -4,6 +4,59 @@
 <!-- tornar o link para 'explore' funcional -->
  <!-- consertar o column gap entre right e left, deixando responsivo -->
 
+
+ {% comment %} OK {% endcomment %}
+ {% comment %} 
+   {% comment %} <style>
+      .inline {
+          max-width: 100%;
+          display: inline;
+      }
+
+      .inline p {
+          display: inline;
+          font-size: 130%;
+      }
+  </style>
+
+
+  <h1>Cart</h1>
+  <h2>Total items: <span id="total-cart-quantity">{{ order.get_cart_quantity }}</span></h2>
+  <h2>Total value: <span id="cart-total">${{ order.get_cart_total|floatformat:2 }}</span></h2>
+
+  <p><strong>{{ order.user }} | {{ order.complete }} | {{ order.transaction_id }}</strong></p>
+  <hr>
+  <div>
+    <div>
+      <br>
+      <br>
+      <br>
+      <br>
+      {% for item in items %}
+        <div class="inline" id="{{ item.product.id }}">
+          <p><strong>Item:</strong> {{ item.product.name }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
+          {% if item.product.discount %}
+            <p><strong>Price:</strong>${{ item.product.discount_price|floatformat:2 }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
+          {% else %}
+            <p><strong>Price:</strong>${{ item.product.price }}&nbsp;&nbsp; | &nbsp;&nbsp;</p>
+          {% endif %}
+          <p><strong>Quantity:</strong> <span id="order-items-count">{{ item.quantity }}</span>&nbsp;&nbsp; | &nbsp;&nbsp;<button
+              data-product="{{ item.product.id }}" data-action="add" class="update-cart">+
+          </button>
+            <button data-product="{{ item.product.id }}" data-action="remove" class="update-cart">-</button> &nbsp;&nbsp;
+          </p>
+          <p><strong>Total:</strong> <span id="order-items-total">${{ item.get_total_value }}</span>&nbsp;&nbsp; |
+            &nbsp;&nbsp;</p>
+          <br>
+          <hr>
+          <br>
+        </div>
+
+      {% endfor %}
+    </div>
+    <a href="{% url 'checkout' %}">Checkout</a>
+  </div> {% endcomment %} {% endcomment %}
+
 {% block content %}
 
 <main id="cart">

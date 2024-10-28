@@ -1,6 +1,219 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% comment %} OLD {% endcomment %}
+{% comment %} 
+<main id="product-page">
+  <!-- menu starts -->
+  <div class="product-link-path">
+    <a href="#">{{ product.category }}</a><span>&nbsp;>&nbsp;</span>
+    <a href="#">{{ product.name }}</a>
+  </div>
+  <!-- menu ends -->
+
+  <!-- product starts -->
+  <div class="product">
+
+    <!-- product header starts -->
+    <div class="product-top">
+      <div class="product-name">
+        <span>{{ product.name }}</span>
+
+        <label for="product-favorite-1" class="custom-checkbox-4">
+          <input type="checkbox" id="product-favorite-1">
+          <i class="product-e glyphicon glyphicon-heart-empty"></i>
+          <i class="product-f glyphicon glyphicon-heart"></i>
+        </label>
+      </div>
+
+      <div class="stars">
+        <img src="{% static 'images/assets/product/star.png' %}" alt="star" class="star">
+        <img src="{% static 'images/assets/product/star.png' %}" alt="star" class="star">
+        <img src="{% static 'images/assets/product/star.png' %}" alt="star" class="star">
+        <img src="{% static 'images/assets/product/star.png' %}" alt="star" class="star">
+        <img src="{% static 'images/assets/product/star.png' %}" alt="star" class="star">
+        <span> 5 &lpar;32 ratings&rpar;</span>
+      </div>
+    </div>
+    <!-- product header ends -->
+
+    <!-- product main starts -->
+    <div class="product-main">
+      <!-- product images starts -->
+      <div class="product-main-images">
+        <img class="product-main-images-lg" src="{{ product.image.url }}">
+        <div class="product-main-images-sm-container">
+          <img class="product-main-images-sm-1" src="{% static 'images/assets/product/product-img-sm-1.png' %}">
+          <img class="product-main-images-sm-2" src="{% static 'images/assets/product/product-img-sm-2.png' %}">
+          <img class="product-main-images-sm-3" src="{% static 'images/assets/product/product-img-sm-3.png' %}">
+          <img class="product-main-images-sm-4" src="{% static 'images/assets/product/product-img-sm-4.png' %}">
+        </div>
+      </div>
+      <!-- product images ends -->
+
+      <!-- product info starts -->
+      <div class="product-main-info">
+
+        <div class="product-main-info-prices">
+          {% if product.discount %}
+          <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+          <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+          {% else %}
+          <span class="new-price">€ {{ product.price|floatformat:2 }}</span>
+          {% endif %}
+        </div>
+
+        {% if product.digital %}
+        <span class="digital">Digital product</span>
+        {% else %}
+        <span class="digital">Physical product</span>
+        {% endif %}
+
+        <span class="info">Sold by: {{ product.seller }}</span>
+        <span class="info">Delivery time: {{ delivery_time }}</span>
+        <span class="info">Return, Refund or Replacement within 14 days of receipt</span>
+
+        <div class="cart-button">
+          <!-- <a href="#"><img src="{% static 'images/assets/shopping-cart.png' %}" alt="">Add to cart</a> -->
+          <button id="add-cart" data-product="{{ product.id }}" data-action="add" class="update-cart explore-cart"><img
+              src="{% static 'images/assets/highlight-cart.png' %}" alt="cart-icon">Add to cart</button>
+        </div>
+      </div>
+      <!-- product info ends -->
+    </div>
+    <!-- product main ends -->
+
+  </div>
+  <!-- product ends -->
+
+  <!-- about starts -->
+  <div class="about">
+    <span class="title">About this product</span>
+    <p class="body">{{ product.about|linebreaksbr}}</p>
+  </div>
+  <!-- about ends -->
+
+  <!-- details starts -->
+  <div class="details">
+    <span class="title">Product details</span>
+    <ul class="body">
+      {% for line in description_lines %}
+      <li><span>{{ line }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- details ends -->
+
+  <!-- reviews starts -->
+  <div class="reviews">
+    <span class="title">Clients reviews</span>
+    <div class="all-reviews">
+
+      {% for review in reviews %}
+      <!-- review 1 left -->
+      <div class="review">
+        <div class="top">
+          <div class="review-stars">
+            <img src="{% static 'images/assets/product/star-sm.png' %}" alt="star" class="star">
+            <img src="{% static 'images/assets/product/star-sm.png' %}" alt="star" class="star">
+            <img src="{% static 'images/assets/product/star-sm.png' %}" alt="star" class="star">
+            <img src="{% static 'images/assets/product/star-sm.png' %}" alt="star" class="star">
+            <img src="{% static 'images/assets/product/star-sm.png' %}" alt="star" class="star">
+          </div>
+          <!-- <span class="name">{{ review_1.user|truncatechars:20 }}</span> -->
+          <span>{{ review.date|timesince }} ago</span>
+
+        </div>
+
+
+        <div class="middle">
+          <span>{{ review.body }}</span>
+        </div>
+
+        <div class="bottom">
+          <span class="recommend">Recommend this product?</span>
+          {% if review.recommend %}
+          <span class="answer">&#10003; Yes</span>
+          {% else %}
+          <span class="answer">&#10005; No</span>
+          {% endif %}
+        </div>
+      </div>
+      <!--  -->
+      {% endfor %}
+
+    </div>
+    <!--  -->
+
+
+    <div class="footnotes">
+      <span class="total-left">{{ reviews_length }} reviews</span>
+      <div class="bottom-right">
+
+        <a href="javascript:;" class="reviews-more">See more <span class="loading-2"><span></span></span><img
+            class="reviews-more-icon" src="{% static 'images/assets/chevron-down-black.png' %}" alt="chevron-down"></a>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- reviews ends -->
+
+
+
+  <!-- related starts -->
+  <div class="related">
+    <span class="title">Discover related products</span>
+    <div class="related-products">
+
+      {% for product in related_products %}
+      <div class="related-product">
+        <div class="top">
+          <a href="{% url 'product' pk=product.id %}"><img class="related-product-image" src="{{ product.image.url }}" alt="product-image"></a>
+          <span>{{ product.name }}</span>
+        </div>
+        <div class="bottom">
+          {% if product.discount %}
+          <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+          <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+          {% else %}
+          <span class="new-price">€ {{ product.price|floatformat:2 }}</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+  <!-- related ends -->
+
+  <!-- bought starts -->
+  <div class="bought">
+    <span class="title">Customers also bought</span>
+    <div class="bought-products">
+
+      {% for product in customer_bought %}
+      <div class="bought-product">
+        <div class="top">
+          <a href="{% url 'product' pk=product.id %}"><img class="bought-product-image" src="{{ product.image.url }}" alt="product-image"></a>
+          <span>{{ product.name }}</span>
+        </div>
+        <div class="bottom">
+          {% if product.discount %}
+          <span class="new-price">€ {{ product.discount_price|floatformat:2 }}</span>
+          <span class="old-price">€ {{ product.price|floatformat:2 }}</span>
+          {% else %}
+          <span class="new-price">€ {{ product.price|floatformat:2 }}</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+  <!-- bought ends -->
+</main> {% endcomment %}
+
 
 <main id="product-page">
   <!-- menu starts -->

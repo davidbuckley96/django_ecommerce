@@ -354,12 +354,17 @@
               <i class="favourite-2-f glyphicon glyphicon-heart"></i>
             </label>
             <!-- <a href="#"><img src="../static/images/assets/heart-icon.png" alt="Favorite"></a> -->
-            <a href="#"
-              ><img
-                class="explore-cart"
-                src="../static/images/assets/highlight-cart.png"
-                alt="Add to cart"
-            /></a>
+            <button
+              id="add-cart"
+              data-product="{{ product.id }}"
+              data-action="add"
+              class="update-cart search-cart"
+            >
+              <img
+                src="{% static 'images/assets/highlight-cart.png' %}"
+                alt="cart-icon"
+              />
+            </button>
           </div>
         </div>
       </div>
