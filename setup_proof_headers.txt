@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Date: Thu, 16 Apr 2026 10:22:50 GMT
+Server: WSGIServer/0.2 CPython/3.12.3
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: DENY
+Content-Length: 62866
+Vary: Cookie
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+
